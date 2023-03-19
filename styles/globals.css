@@ -1,7 +1,16 @@
+@font-face {
+  font-family: "WildMango";
+  src: url("../public/assets/fonts/WildMango.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: "RedHatText";
+  src: url("../public/assets/fonts/RedHatText-Light.woff2") format("woff2");
+}
+
 html,
 body {
   padding: 0;
-  margin: 0 2rem 0 2rem;
   background: rgb(3, 4, 6);
   background: linear-gradient(
     0deg,
@@ -9,8 +18,13 @@ body {
     rgba(20, 25, 31, 1) 56%
   );
   color: #d5cac4;
+  margin: 0;
   min-height: 100vh;
   font-size: 14px;
+  font-family: "RedHatText";
+}
+body {
+  margin: 0 2% 0 2%;
 }
 
 a {
@@ -20,11 +34,6 @@ a {
 
 * {
   box-sizing: border-box;
-}
-
-@font-face {
-  font-family: "WildMango";
-  src: url("../public/assets/fonts/WildMango.woff2") format("woff2");
 }
 
 h1,
@@ -38,7 +47,58 @@ h1 {
   font-size: 24px;
 }
 
+#__next {
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+}
+
+@media only screen and (min-width: 481px) {
+  html,
+  body {
+    font-size: 16px;
+  }
+  h1 {
+    font-size: 32px;
+    margin: 0;
+  }
+}
+
+@media only screen and (min-width: 769px) {
+  html,
+  body {
+    font-size: 24px;
+  }
+  h1 {
+    font-size: 50px;
+    margin: 0;
+  }
+}
+
 @media only screen and (min-width: 1025px) {
+  html,
+  body {
+    font-size: 32px;
+  }
+  h1 {
+    font-size: 64px;
+    margin: 0;
+    line-height: 0.8;
+  }
+}
+
+@media only screen and (min-width: 1201px) {
+  html,
+  body {
+    font-size: 36px;
+  }
+  h1 {
+    font-size: 72px;
+    margin: 0;
+  }
+}
+
+@media only screen and (min-width: 1441px) {
   html,
   body {
     font-size: 48px;

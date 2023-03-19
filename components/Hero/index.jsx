@@ -26,29 +26,31 @@ const Studio = styled.div`
   align-items: center;
   text-align: center;
   & h1 {
-    grid-row-start: 2;
+    grid-row-start: 1;
     grid-column-start: 1;
+    padding: 0 1em 0 1em;
   }
 `;
 
 const Line = styled.div`
   grid-row-start: 2;
   grid-column-start: 1;
-  height: 2px;
+  height: 3px;
   background-color: #d5cac4;
+  border-radius: 40%;
+  margin: 2% 0 2% 0;
 `;
 
 const Subtitle = styled.div`
-  grid-row-start: 2;
+  grid-row-start: 3;
   grid-column-start: 1;
-  margin: 10px;
 `;
 
 const Oval = styled.div`
   grid-row-start: 2;
   grid-column-start: 1;
-  width: 0.7rem;
-  height: 1rem;
+  width: 3.5%;
+  height: 100%;
   background-color: #d5cac4;
   justify-self: center;
   border-radius: 100%;
@@ -56,7 +58,7 @@ const Oval = styled.div`
 
 export default function HeroCard() {
   return (
-    <>
+    <div>
       <Flex>
         <Wrapper>
           <Image
@@ -69,13 +71,13 @@ export default function HeroCard() {
       <Studio>
         {/* animate={{ y: -60, opacity: 1 }} */}
         <motion.h1
-          animate={{ y: -20, opacity: 1 }}
+          animate={{ y: 0, opacity: 1 }}
           transition={{
             delay: 0.2,
             y: { duration: 1.5 },
             default: { ease: "linear" },
           }}
-          initial={{ opacity: 0 }}
+          initial={{ opacity: 0, y: 10 }}
         >
           Lilja Art Studio
         </motion.h1>
@@ -85,18 +87,19 @@ export default function HeroCard() {
         <Subtitle>
           {/* animate={{ y: 40, opacity: 1 }} */}
           <motion.p
-            animate={{ y: 15, opacity: 1 }}
+            animate={{ y: 0, opacity: 1 }}
             transition={{
               delay: 0.2,
               y: { duration: 1.5 },
               default: { ease: "linear" },
             }}
-            initial={{ opacity: 0 }}
+            initial={{ opacity: 0, y: -10 }}
+            style={{ margin: "0", lineHeight: "0.8" }}
           >
             Tatuerare och konstnär i Göteborg
           </motion.p>
         </Subtitle>
       </Studio>
-    </>
+    </div>
   );
 }
