@@ -2,27 +2,20 @@ import Image from "next/image";
 import styled from "styled-components";
 
 const Wrapper = styled.div`
-  max-width: 33%;
-  max-height: auto;
-  display: grid;
-`;
-
-const Description = styled.div`
-  background: rgba(50, 29, 36, 0.8);
-  height: 30%;
-  grid-row-start: 1;
-  grid-column-start: 1;
-  align-self: end;
   display: flex;
-  align-items: center;
-  justify-content: center;
+  flex-direction: row;
+  justify-content: flex-start;
+  gap: 1rem;
 `;
 
 const ImageWrapper = styled.div`
-  grid-row-start: 1;
-  grid-column-start: 1;
+  max-width: 30%;
 `;
-export default function SkillCard({ image, altText, text }) {
+
+const Description = styled.div`
+  max-width: 40%;
+`;
+export default function IntroCard({ image, altText, text }) {
   return (
     <>
       <Wrapper>

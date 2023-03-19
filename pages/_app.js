@@ -14,7 +14,16 @@ function MyApp({ Component, pageProps }) {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <Hero />
-      <Component {...pageProps} />
+      <main>
+        <Component {...pageProps} />
+      </main>
+      <div>
+        <footer>
+          <h2>Instagram</h2>
+          <figure data-behold-id="VfptWwR0XKKcjP0582hH"></figure>
+          <script src="https://w.behold.so/widget.js" type="module"></script>
+        </footer>
+      </div>
     </>
   );
 }

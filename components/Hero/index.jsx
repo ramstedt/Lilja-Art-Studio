@@ -15,7 +15,7 @@ const Flex = styled.div`
 const Wrapper = styled.div`
   object-fit: contain;
   & img {
-    max-width: 1000px;
+    max-width: 800px;
     height: auto;
   }
 `;
@@ -49,8 +49,8 @@ const Subtitle = styled.div`
 const Oval = styled.div`
   grid-row-start: 2;
   grid-column-start: 1;
-  width: 3.5%;
-  height: 100%;
+  width: 2.5%;
+  height: 90%;
   background-color: #d5cac4;
   justify-self: center;
   border-radius: 100%;
@@ -86,7 +86,7 @@ export default function HeroCard() {
         <Oval />
         <Subtitle>
           {/* animate={{ y: 40, opacity: 1 }} */}
-          <motion.p
+          <motion.h2
             animate={{ y: 0, opacity: 1 }}
             transition={{
               delay: 0.2,
@@ -97,7 +97,7 @@ export default function HeroCard() {
             style={{ margin: "0", lineHeight: "0.8" }}
           >
             Tatuerare och konstnär i Göteborg
-          </motion.p>
+          </motion.h2>
         </Subtitle>
       </Studio>
     </div>
