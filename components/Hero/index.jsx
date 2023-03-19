@@ -24,6 +24,7 @@ const Studio = styled.div`
   display: grid;
   justify-content: center;
   align-items: center;
+  text-align: center;
   & h1 {
     grid-row-start: 2;
     grid-column-start: 1;
@@ -33,22 +34,21 @@ const Studio = styled.div`
 const Line = styled.div`
   grid-row-start: 2;
   grid-column-start: 1;
-  height: 6px;
+  height: 2px;
   background-color: #d5cac4;
 `;
 
 const Subtitle = styled.div`
   grid-row-start: 2;
   grid-column-start: 1;
-  font-size: 48px;
   margin: 10px;
 `;
 
 const Oval = styled.div`
   grid-row-start: 2;
   grid-column-start: 1;
-  width: 1.5rem;
-  height: 2rem;
+  width: 0.7rem;
+  height: 1rem;
   background-color: #d5cac4;
   justify-self: center;
   border-radius: 100%;
@@ -62,12 +62,14 @@ export default function HeroCard() {
           <Image
             src={Hero}
             alt="two white lilies on a transparent background"
+            style={{ width: "100%", height: "100%", objectFit: "cover" }}
           />
         </Wrapper>
       </Flex>
       <Studio>
+        {/* animate={{ y: -60, opacity: 1 }} */}
         <motion.h1
-          animate={{ y: -60, opacity: 1 }}
+          animate={{ y: -20, opacity: 1 }}
           transition={{
             delay: 0.2,
             y: { duration: 1.5 },
@@ -81,8 +83,9 @@ export default function HeroCard() {
         <Line />
         <Oval />
         <Subtitle>
+          {/* animate={{ y: 40, opacity: 1 }} */}
           <motion.p
-            animate={{ y: 40, opacity: 1 }}
+            animate={{ y: 15, opacity: 1 }}
             transition={{
               delay: 0.2,
               y: { duration: 1.5 },
