@@ -29,6 +29,7 @@ const Studio = styled.div`
     grid-row-start: 1;
     grid-column-start: 1;
     padding: 0 1em 0 1em;
+    margin: 0;
   }
 `;
 
@@ -44,6 +45,24 @@ const Line = styled.div`
 const Subtitle = styled.div`
   grid-row-start: 3;
   grid-column-start: 1;
+  font-size: 1.1rem;
+
+  @media only screen and (min-width: 481px) {
+    font-size: 1.188rem;
+    text-align: center;
+  }
+
+  @media only screen and (min-width: 769px) {
+    font-size: 1.5rem;
+  }
+
+  @media only screen and (min-width: 1025px) {
+    font-size: 2rem;
+  }
+
+  @media only screen and (min-width: 1201px) {
+    font-size: 2.25rem;
+  }
 `;
 
 const Oval = styled.div`
@@ -86,7 +105,7 @@ export default function HeroCard() {
         <Oval />
         <Subtitle>
           {/* animate={{ y: 40, opacity: 1 }} */}
-          <motion.h2
+          <motion.div
             animate={{ y: 0, opacity: 1 }}
             transition={{
               delay: 0.2,
@@ -94,10 +113,14 @@ export default function HeroCard() {
               default: { ease: "linear" },
             }}
             initial={{ opacity: 0, y: -10 }}
-            style={{ margin: "0", lineHeight: "0.8" }}
+            style={{
+              margin: "0",
+              lineHeight: "0.8",
+              fontFamily: "WildMango",
+            }}
           >
             Tatuerare och konstnär i Göteborg
-          </motion.h2>
+          </motion.div>
         </Subtitle>
       </Studio>
     </div>

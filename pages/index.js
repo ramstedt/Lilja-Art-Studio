@@ -5,6 +5,7 @@ import Tatueringar from "../public/assets/images/tatueringar.png";
 import Illustrationer from "../public/assets/images/illustrationer.png";
 import ProfilePhoto from "../public/assets/images/profilephoto.png";
 import IntroCard from "../components/IntroCard";
+import { createClient } from "next-sanity";
 
 const SkillCardWrapper = styled.div`
   display: flex;
@@ -37,4 +38,25 @@ export default function Home() {
       </SkillCardWrapper>
     </>
   );
+}
+
+const client = createClient({
+  projectId: "lqz08o01",
+  dataset: "production",
+  apiVersion: "2022-03-25",
+  useCdn: false,
+});
+
+export async function getStaticProps() {
+  const posts = [
+    /* {
+
+    } */
+  ];
+
+  return {
+    props: {
+      posts,
+    },
+  };
 }
