@@ -116,7 +116,6 @@ export default function HeroCard() {
             style={{
               margin: "0",
               lineHeight: "0.8",
-              fontFamily: "WildMango",
             }}
           >
             Tatuerare och konstnär i Göteborg

@@ -1,6 +1,6 @@
 @font-face {
-  font-family: "WildMango";
-  src: url("../public/assets/fonts/WildMango.woff2") format("woff2");
+  font-family: "YatraOne";
+  src: url("../public/assets/fonts/YatraOne-Regular.woff2") format("woff2");
 }
 
 @font-face {
@@ -43,7 +43,7 @@ a {
 h1,
 h2,
 h3 {
-  font-family: "WildMango";
+  font-family: "YatraOne";
   margin: 1rem 0 0.5rem 0;
   text-align: center;
 }
