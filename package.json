@@ -1,5 +1,5 @@
 {
-  "name": "lilja-art-studio",
+  "name": "lilja-art-tattoo",
   "version": "0.1.0",
   "private": true,
   "scripts": {
@@ -9,18 +9,12 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "framer-motion": "^10.6.0",
-    "next": "13.2.4",
-    "next-sanity": "^4.1.6",
-    "react": "18.2.0",
-    "react-dom": "18.2.0",
-    "react-icons": "^4.8.0",
-    "react-jsx": "^1.0.0",
-    "styled-components": "^5.3.9"
+    "react": "^18",
+    "react-dom": "^18",
+    "next": "14.0.2"
   },
   "devDependencies": {
-    "babel-plugin-styled-components": "^2.0.7",
-    "eslint": "8.36.0",
-    "eslint-config-next": "13.2.4"
+    "eslint": "^8",
+    "eslint-config-next": "14.0.2"
   }
 }
