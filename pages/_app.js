@@ -1,13 +1,14 @@
-import "../styles/globals.css";
+ import { ThemeProvider } from 'styled-components';
+ import { theme } from '@/theme';
+ import { client } from '@/sanity/lib/client'
+import Theme from '@/components/Theme/Theme';
 
 
-function MyApp({ Component, pageProps }) {
-
+ function MyApp({ Component, pageProps, theme }) {
   return (
-<>
-<Component {...pageProps}  />
-</>
-  );
-}
+    <Theme> <Component {...pageProps} /></Theme>
 
-export default MyApp;
+  );
+ }
+
+ export default MyApp;
