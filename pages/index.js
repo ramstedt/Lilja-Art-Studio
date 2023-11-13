@@ -1,6 +1,9 @@
-import Link from 'next/link';
-import styled from 'styled-components';
+import Layout from '@/components/Layout/Layout';
 
 export default function Home({}) {
-  return <div>Index</div>;
+  return (
+    <Layout>
+      <div>Index</div>
+    </Layout>
+  );
 }

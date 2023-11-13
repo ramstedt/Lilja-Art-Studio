@@ -1,15 +1,17 @@
-import '@/styles/globals.css';
 import Theme from '@/components/Theme/Theme';
 import Footer from '@/components/Footer/Footer';
 import GlobalStyle from '@/styles/globals';
 import Hero from '@/components/Hero/Hero';
 
-function MyApp({ Component, pageProps }) {
+function Layout({ children }) {
   return (
-    <>
-      <Component {...pageProps} />
-    </>
+    <Theme>
+      <GlobalStyle />
+      <Hero />
+      {children}
+      <Footer />
+    </Theme>
   );
 }
 
-export default MyApp;
+export default Layout;
