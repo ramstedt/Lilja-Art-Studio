@@ -13,11 +13,9 @@ const Theme = ({children}) => {
           });
       }, []);
     
-console.log(theme)
 if (!theme) return <div>Loading...</div>;
 return (
     <ThemeProvider theme={theme}>
-      <div>Welcome to the Home page!</div>
       {children}
     </ThemeProvider>
 )
