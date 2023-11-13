@@ -4,14 +4,21 @@ import { useState, useEffect } from 'react';
 
 const Theme = ({ children }) => {
   const [theme, setTheme] = useState(null);
+  const [isLoading, setLoading] = useState(true);
 
   useEffect(() => {
-    client.fetch(`*[_type == "theme"]{primary, secondary}`).then((data) => {
-      setTheme(data[0]);
-    });
+    client
+      .fetch(`*[_type == "theme"]{primary, secondary}`)
+      .then((data) => {
+        setTheme(data[0]);
+        setLoading(false);
+      })
+      .catch((error) => {
+        console.error('Error:', error);
+      });
   }, []);
 
-  if (!theme) return <div>Loading...</div>;
+  if (isLoading) return <div></div>;
   return <ThemeProvider theme={theme}>{children}</ThemeProvider>;
 };
 
