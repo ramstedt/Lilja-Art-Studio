@@ -11,7 +11,6 @@ const Theme = ({ children }) => {
     });
   }, []);
 
-  console.log(theme.primary.headerColor.value);
   if (!theme) return <div>Loading...</div>;
   return <ThemeProvider theme={theme}>{children}</ThemeProvider>;
 };
