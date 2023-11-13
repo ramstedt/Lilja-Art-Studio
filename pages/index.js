@@ -1,15 +1,14 @@
-import Theme from '@/components/Theme/Theme'
-import styled from "styled-components"
+import Theme from '@/components/Theme/Theme';
+import styled from 'styled-components';
 
 const Title = styled.h1`
-color: ${props => props.theme.primary}`
+  color: ${(props) => props.theme.primary.headerColor.value};
+`;
 
-  export default function Home({  }) {
-
-      return (
-
+export default function Home({}) {
+  return (
     <div>
-        <Title>Hello</Title>Welcome to the Home page!</div>
-
-      );
-    }
+      <Title>Hello</Title>Welcome to the Home page!
+    </div>
+  );
+}
