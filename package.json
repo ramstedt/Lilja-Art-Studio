@@ -9,12 +9,17 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@sanity/image-url": "^1.0.2",
+    "@sanity/vision": "^3.19.2",
+    "next": "13.0.0",
+    "next-sanity": "^5.5.10",
     "react": "^18",
     "react-dom": "^18",
-    "next": "14.0.2"
+    "sanity": "^3.19.2",
+    "styled-components": "^6.1.1"
   },
   "devDependencies": {
     "eslint": "^8",
-    "eslint-config-next": "14.0.2"
+    "eslint-config-next": "13.0.0"
   }
 }
