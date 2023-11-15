@@ -27,6 +27,16 @@ button {
 button:hover {
     background: ${(props) => props.theme.primary.buttonColorHover.value};
 }
+
+.desktop-item,
+.nav-links li a {
+  color: ${(props) => props.theme.primary.fontColor.value}
+}
+  .nav-links .mobile-item {
+    color: ${(props) => props.theme.primary.fontColor.value}
+  }
+
+
 `;
 
 export default GlobalStyle;
