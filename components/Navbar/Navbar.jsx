@@ -27,24 +27,18 @@ function Nav() {
               </label>
               <ul className='drop-menu'>
                 <li>
-                  <Link href='/historia'>Vår Historia</Link>
+                  <Link href='/historia'>Länk 1</Link>
                 </li>
                 <li>
-                  <Link href='/samarbetspartners'>Samarbetspartners</Link>
+                  <Link href='/samarbetspartners'>Länk 2</Link>
                 </li>
                 <li>
-                  <Link href='/gdpr'>Organisation/GDPR</Link>
-                </li>
-                <li>
-                  <Link href='/kvalitetspolicy'>Miljö/Kvalitetspolicy</Link>
-                </li>
-                <li>
-                  <Link href='/rutrot'>Rut och ROT</Link>
+                  <Link href='/gdpr'>Länk 3</Link>
                 </li>
               </ul>
             </li>
             <li>
-              <Link href='/tjanster'>Tjänster</Link>
+              <Link href='/artists'>Våra tatuerare</Link>
             </li>
             <li>
               <Link href='/galleri'>Galleri</Link>

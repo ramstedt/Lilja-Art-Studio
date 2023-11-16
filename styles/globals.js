@@ -23,18 +23,24 @@ a:hover {
 button {
     background: ${(props) => props.theme.primary.buttonColor.value};
     color: ${(props) => props.theme.primary.buttonTextColor.value};
+    border-color: ${(props) => props.theme.primary.buttonTextColor.value};
 }
 button:hover {
     background: ${(props) => props.theme.primary.buttonColorHover.value};
+    color: ${(props) => props.theme.primary.headerColor.value};
+}
+
+footer{
+  background:${(props) => props.theme.secondary.backgroundColor.value};
 }
 
 .desktop-item,
 .nav-links li a {
   color: ${(props) => props.theme.primary.fontColor.value}
 }
-  .nav-links .mobile-item {
+.nav-links .mobile-item {
     color: ${(props) => props.theme.primary.fontColor.value}
-  }
+}
 
 
 `;
