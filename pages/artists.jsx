@@ -1,4 +1,4 @@
-import ArtistCard from '@/components/ArtistCard/ArtistCard';
+import ArtistCardSmall from '@/components/ArtistCardSmall/ArtistCardSmall';
 import Layout from '@/components/Layout/Layout';
 import styled from 'styled-components';
 
@@ -10,7 +10,7 @@ const ArtistWrapper = styled.div`
   justify-content: space-evenly;
 `;
 
-export default function Home() {
+export default function Artists() {
   return (
     <Layout>
       <h1>Title</h1>
@@ -20,13 +20,9 @@ export default function Home() {
         blanditiis ratione totam et nihil labore ea quis dignissimos amet sed?
       </div>
       <ArtistWrapper>
-        <ArtistCard text='lorem' />
-        <ArtistCard text='lorem' />
-        <ArtistCard text='lorem' />
-        <ArtistCard text='lorem' />
-        <ArtistCard text='lorem' />
-        <ArtistCard text='lorem' />
-        <ArtistCard text='lorem' />
+        <ArtistCardSmall text='lorem' />
+        <ArtistCardSmall text='lorem' />
+        <ArtistCardSmall text='lorem' />
       </ArtistWrapper>
     </Layout>
   );

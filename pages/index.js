@@ -1,4 +1,4 @@
-import ArtistCard from '@/components/ArtistCard/ArtistCard';
+import ArtistCard from '@/components/ArtistCardSmall/ArtistCardSmall';
 import Layout from '@/components/Layout/Layout';
 
 export default function Home() {

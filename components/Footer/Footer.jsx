@@ -3,12 +3,16 @@ import styled from 'styled-components';
 import placeholder from '@/public/images/placeholder.png';
 import { GrInstagram } from 'react-icons/gr';
 
-const Wrapper = styled.footer`
+const Wrapper = styled.footer``;
+
+const MaxWidth = styled.div`
+  max-width: 1440px;
   padding: 1rem;
   display: flex;
   justify-content: space-between;
   flex-direction: column;
   font-size: 0.9rem;
+  margin: auto;
   @media only screen and (min-width: 768px) {
     flex-direction: row;
     align-items: center;
@@ -38,33 +42,35 @@ const SocialMedia = styled.div`
 export default function Footer() {
   return (
     <Wrapper>
-      <Contact>
-        <div>
-          <h5>Kontakt</h5>
-          karin@email.se
-        </div>
-        <div>
-          <h5>Adress</h5>
-          Gatuvägen 45 <br />
-          113 43 Mölndal
-        </div>
-        <div>
-          <h5>Organisationsnummer</h5>
-          000 - 000000
-        </div>
-      </Contact>
-      <SocialMedia>
-        <h5>Sociala medier</h5>
-        <GrInstagram />
-      </SocialMedia>
-      <ImageWrapper>
-        <Image
-          src={placeholder}
-          alt='alt text'
-          fill
-          style={{ objectFit: 'cover' }}
-        />
-      </ImageWrapper>
+      <MaxWidth>
+        <Contact>
+          <div>
+            <h5>Kontakt</h5>
+            karin@email.se
+          </div>
+          <div>
+            <h5>Adress</h5>
+            Gatuvägen 45 <br />
+            113 43 Mölndal
+          </div>
+          <div>
+            <h5>Organisationsnummer</h5>
+            000 - 000000
+          </div>
+        </Contact>
+        <SocialMedia>
+          <h5>Sociala medier</h5>
+          <GrInstagram />
+        </SocialMedia>
+        <ImageWrapper>
+          <Image
+            src={placeholder}
+            alt='alt text'
+            fill
+            style={{ objectFit: 'cover' }}
+          />
+        </ImageWrapper>
+      </MaxWidth>
     </Wrapper>
   );
 }

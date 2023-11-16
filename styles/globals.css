@@ -26,10 +26,13 @@
 
 html,
 body {
-  max-width: 1440px;
   margin: auto;
   overflow-x: hidden;
   font-family: 'Source Sans 3', Courier, monospace;
+}
+
+p {
+  line-height: 1.3rem;
 }
 
 a {
