@@ -5,13 +5,13 @@
  *  {
  *    name: 'someName',
  *    title: 'Some title',
- *    type: 'blockContent'
+ *    type: 'blockContentNoImage'
  *  }
  */
 
-export const blockContent = {
+export const blockContentNoImage = {
   title: 'Block Content',
-  name: 'blockContent',
+  name: 'blockContentNoImage',
   type: 'array',
   of: [
     {
@@ -57,16 +57,5 @@ export const blockContent = {
     // You can add additional types here. Note that you can't use
     // primitive types such as 'string' and 'number' in the same array
     // as a block type.
-    {
-      type: 'image',
-      options: { hotspot: true },
-      fields: [
-        {
-          name: 'alt',
-          type: 'string',
-          title: 'Alternative Text',
-        },
-      ],
-    },
   ],
 };

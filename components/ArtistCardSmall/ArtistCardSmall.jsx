@@ -7,7 +7,7 @@ const Wrapper = styled.div`
   border-style: solid;
   border-width: 1px;
   border-color: black;
-  max-width: 300px;
+  width: 300px;
   background: ${(props) => props.theme.secondary.backgroundColor.value};
 `;
 
@@ -25,23 +25,24 @@ const ButtonWrapper = styled.div`
   padding: 1rem;
 `;
 
-export default function ArtistCard({ text }) {
+export default function ArtistCardSmall({ title, text, image, alt, slug }) {
   return (
     <Wrapper>
       <ImageWrapper>
         <Image
-          src={placeholder}
-          alt='alt text'
+          src={image}
+          alt={alt}
           fill
           style={{ objectFit: 'cover' }}
+          sizes='(max-width: 300px)'
         />
       </ImageWrapper>
       <TextWrapper>
-        <h3>Karin</h3>
-        <p>Tatuerare med specialisering i det ena och det andra</p>
+        <h3>{title}</h3>
+        <p>{text}</p>
       </TextWrapper>
       <ButtonWrapper>
-        <CTAButton text='Portfolio' />
+        <CTAButton text='Portfolio' url={slug} />
       </ButtonWrapper>
     </Wrapper>
   );

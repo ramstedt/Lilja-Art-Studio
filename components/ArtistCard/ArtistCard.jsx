@@ -8,6 +8,7 @@ const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
   gap: 1.5rem;
+  width: 100%;
 
   @media only screen and (min-width: 768px) {
     flex-direction: row;
@@ -20,25 +21,27 @@ const About = styled.div`
   flex-direction: column;
   background: ${(props) => props.theme.secondary.backgroundColor.value};
   padding: 1rem;
-  max-width: 720px;
-
+  width: 100%;
   @media only screen and (min-width: 768px) {
     flex-direction: row;
+    width: 720px;
   }
 `;
 
 const ImageWrapper = styled.div`
   @media only screen and (min-width: 768px) {
-    max-width: 400px;
+    width: 400px;
+    height: 500px;
   }
   position: relative;
-  width: 100%;
-  height: 360px;
+
+  width: 300px;
+  height: 450px;
 `;
 
 const TextWrapper = styled.div`
   @media only screen and (min-width: 768px) {
-    max-width: 60%;
+    width: 60%;
   }
 `;
 
@@ -73,32 +76,22 @@ const GalleryCard = styled.div`
   }
 `;
 
-export default function ArtistCard() {
+export default function ArtistCard({ portrait, name, description }) {
   return (
     <Wrapper>
       <About>
         <ImageWrapper>
           <Image
-            src={placeholder}
+            src={portrait}
+            sizes='(max-width: 300px)'
             alt='alt text'
             fill
             style={{ objectFit: 'cover' }}
           />
         </ImageWrapper>
         <TextWrapper>
-          <h1>Karin</h1>
-          <p>
-            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ullam
-            fugiat esse ex. Voluptatem odio minus ratione at earum suscipit id
-            nulla quia, sunt ipsam, voluptatibus architecto enim cumque placeat
-            eum? Lorem ipsum dolor sit amet consectetur adipisicing elit.
-            Numquam laboriosam ad sunt incidunt unde amet adipisci possimus,
-            vitae doloremque, earum veritatis voluptatum! Ipsa eum officia
-            voluptatem sed, sint atque illo repellendus, earum aliquam inventore
-            fugit sunt! Nisi quisquam, earum libero cum ipsa, ducimus magnam
-            nemo cumque quam voluptas aliquam dolores. Numquam asperiores est
-            aperiam repudiandae laborum sequi cumque dolore perspiciatis!
-          </p>
+          <h1>{name}</h1>
+          {description}
         </TextWrapper>
         {/* <ButtonWrapper>
         <CTAButton text='Kontakt' />
@@ -113,86 +106,7 @@ export default function ArtistCard() {
       <GalleryWrapper>
         <h2>Galleri</h2>
         <Gallery>
-          <GalleryCard>
-            <Image
-              src={placeholder}
-              alt='alt text'
-              fill
-              style={{ objectFit: 'cover' }}
-            />
-          </GalleryCard>
-          <GalleryCard>
-            <Image
-              src={placeholder}
-              alt='alt text'
-              fill
-              style={{ objectFit: 'cover' }}
-            />
-          </GalleryCard>
-          <GalleryCard>
-            <Image
-              src={placeholder}
-              alt='alt text'
-              fill
-              style={{ objectFit: 'cover' }}
-            />
-          </GalleryCard>
-          <GalleryCard>
-            <Image
-              src={placeholder}
-              alt='alt text'
-              fill
-              style={{ objectFit: 'cover' }}
-            />
-          </GalleryCard>
-          <GalleryCard>
-            <Image
-              src={placeholder}
-              alt='alt text'
-              fill
-              style={{ objectFit: 'cover' }}
-            />
-          </GalleryCard>
-          <GalleryCard>
-            <Image
-              src={placeholder}
-              alt='alt text'
-              fill
-              style={{ objectFit: 'cover' }}
-            />
-          </GalleryCard>
-          <GalleryCard>
-            <Image
-              src={placeholder}
-              alt='alt text'
-              fill
-              style={{ objectFit: 'cover' }}
-            />
-          </GalleryCard>
-          <GalleryCard>
-            <Image
-              src={placeholder}
-              alt='alt text'
-              fill
-              style={{ objectFit: 'cover' }}
-            />
-          </GalleryCard>
-          <GalleryCard>
-            <Image
-              src={placeholder}
-              alt='alt text'
-              fill
-              style={{ objectFit: 'cover' }}
-            />
-          </GalleryCard>
-          <GalleryCard>
-            <Image
-              src={placeholder}
-              alt='alt text'
-              fill
-              style={{ objectFit: 'cover' }}
-            />
-          </GalleryCard>
+          <GalleryCard></GalleryCard>
         </Gallery>
       </GalleryWrapper>
     </Wrapper>
