@@ -3,8 +3,8 @@ import { client } from '@/sanity/lib/client';
 import { useState, useEffect } from 'react';
 import Layout from '@/components/Layout/Layout';
 import ArtistCard from '@/components/ArtistCard/ArtistCard';
-import imageUrlBuilder from '@sanity/image-url';
 import BlockContent from '@sanity/block-content-to-react';
+import imageUrlBuilder from '@sanity/image-url';
 
 const builder = imageUrlBuilder(client);
 function urlFor(source) {
@@ -27,7 +27,6 @@ export default function ArtistPage() {
         .then((artistData) => {
           setArtist(artistData);
           setIsLoading(false);
-          console.log(artistData);
         })
         .catch((error) => {
           console.error('Error:', error);
@@ -42,7 +41,14 @@ export default function ArtistPage() {
       <ArtistCard
         portrait={urlFor(artist.portrait).url()}
         name={artist.name}
-        description={<BlockContent blocks={artist.description} />}
+        description={
+          <BlockContent blocks={artist.description} gallery={artist.gallery} />
+        }
+        gallery={artist.gallery}
+        email={artist.email}
+        phone={artist.phone}
+        instagram={artist.instagram}
+        facebook={artist.facebook}
       />
     </Layout>
   );

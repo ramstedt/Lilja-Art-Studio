@@ -1,5 +1,4 @@
 nav {
-  z-index: 99;
   width: 100%;
   font-family: 'Oswald', Courier, monospace;
   position: absolute;
@@ -89,11 +88,11 @@ ul {
 }
 .wrapper .btn.close-btn {
   position: absolute;
-  right: 30px;
+  right: 60px;
   top: 10px;
 }
 
-@media screen and (max-width: 777px) {
+@media screen and (max-width: 600px) {
   nav {
     width: fit-content;
     background: transparent;

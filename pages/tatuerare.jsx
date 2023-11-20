@@ -33,7 +33,6 @@ export default function Artists() {
         return client.fetch(`*[_type == "artists"]`);
       })
       .then((artistData) => {
-        // Handle the data from the second schema
         setArtists(artistData);
         setLoading(false);
       })
@@ -55,7 +54,6 @@ export default function Artists() {
       <ArtistWrapper>
         {artists &&
           artists.map((artist, key) => {
-            console.log(artist.slug.current);
             return (
               <ArtistCardSmall
                 title={artist.name}
@@ -63,7 +61,7 @@ export default function Artists() {
                 key={artist.slug.current + key}
                 image={urlFor(artist.portrait).url()}
                 alt={artist.portrait.alt}
-                slug={`/tatuerare/${artist.portrait.slug}`}
+                slug={`/tatuerare/${artist.slug.current}`}
               />
             );
           })}

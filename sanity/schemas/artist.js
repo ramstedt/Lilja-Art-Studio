@@ -34,7 +34,7 @@ export const artist = {
       type: 'string',
     },
     {
-      name: 'insragram',
+      name: 'instagram',
       title: 'Instagram',
       type: 'url',
     },

@@ -38,7 +38,7 @@ function Nav() {
               </ul>
             </li>
             <li>
-              <Link href='/artists'>Våra tatuerare</Link>
+              <Link href='/tatuerare'>Våra tatuerare</Link>
             </li>
             <li>
               <Link href='/galleri'>Galleri</Link>

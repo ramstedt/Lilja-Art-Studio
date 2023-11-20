@@ -1,15 +1,23 @@
 import styled from 'styled-components';
-import CTAButton from '../_atoms/CTAButton/CTAButton';
 import Image from 'next/image';
-import placeholder from '@/public/images/placeholder.png';
-import { GrInstagram } from 'react-icons/gr';
+import { IoLogoInstagram } from 'react-icons/io';
+import { IoLogoFacebook } from 'react-icons/io';
+import imageUrlBuilder from '@sanity/image-url';
+import { client } from '@/sanity/lib/client';
+import Modal from 'react-modal';
+import { useState } from 'react';
+import Link from 'next/link';
+
+const builder = imageUrlBuilder(client);
+function urlFor(source) {
+  return builder.image(source);
+}
 
 const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
   gap: 1.5rem;
   width: 100%;
-
   @media only screen and (min-width: 768px) {
     flex-direction: row;
     flex-wrap: wrap;
@@ -21,7 +29,6 @@ const About = styled.div`
   flex-direction: column;
   background: ${(props) => props.theme.secondary.backgroundColor.value};
   padding: 1rem;
-  width: 100%;
   @media only screen and (min-width: 768px) {
     flex-direction: row;
     width: 720px;
@@ -29,14 +36,19 @@ const About = styled.div`
 `;
 
 const ImageWrapper = styled.div`
+  position: relative;
+  margin: auto;
+  width: 270px;
+  height: 370px;
+  @media only screen and (min-width: 425px) {
+    width: 300px;
+    height: 400px;
+  }
+
   @media only screen and (min-width: 768px) {
     width: 400px;
     height: 500px;
   }
-  position: relative;
-
-  width: 300px;
-  height: 450px;
 `;
 
 const TextWrapper = styled.div`
@@ -47,6 +59,9 @@ const TextWrapper = styled.div`
 
 const Contact = styled.div`
   width: 100%;
+  p {
+    height: 2rem;
+  }
   @media only screen and (min-width: 768px) {
     width: 20%;
   }
@@ -70,13 +85,49 @@ const GalleryCard = styled.div`
   padding: 1rem;
   width: 130px;
   height: 130px;
+  cursor: pointer;
+  border-style: solid;
+  border-width: 1px;
+  border-color: #d8d8d8;
+  overflow: hidden;
+  img {
+    transition: transform 0.3s ease-in-out;
+    &:hover {
+      transform: scale(1.1);
+    }
+  }
   @media only screen and (min-width: 768px) {
     width: 220px;
     height: 220px;
   }
 `;
 
-export default function ArtistCard({ portrait, name, description }) {
+const SocialMedia = styled.div`
+  display: flex;
+  gap: 0.5rem;
+  a svg {
+    height: 30px;
+    width: 30px;
+  }
+`;
+
+const customStyles = {
+  content: {
+    position: 'absolute',
+    zIndex: '999',
+    cursor: 'pointer',
+  },
+};
+export default function ArtistCard({
+  portrait,
+  name,
+  description,
+  gallery,
+  email,
+  phone,
+  instagram,
+  facebook,
+}) {
   return (
     <Wrapper>
       <About>
@@ -93,20 +144,77 @@ export default function ArtistCard({ portrait, name, description }) {
           <h1>{name}</h1>
           {description}
         </TextWrapper>
-        {/* <ButtonWrapper>
-        <CTAButton text='Kontakt' />
-      </ButtonWrapper> */}
       </About>
       <Contact>
         <h2>Kontaktinformation</h2>
-        <p>Email: placeholder@placeholder.se</p>
-
-        <GrInstagram />
+        {email ? <p>Email: {email}</p> : null}
+        {phone ? <p>Telefon: {phone}</p> : null}
+        <SocialMedia>
+          <div>
+            {facebook ? (
+              <Link href={facebook} target='_blank'>
+                <IoLogoFacebook />
+              </Link>
+            ) : null}
+          </div>
+          <div>
+            {instagram ? (
+              <Link href={instagram} target='_blank'>
+                <IoLogoInstagram />
+              </Link>
+            ) : null}
+          </div>
+        </SocialMedia>
       </Contact>
       <GalleryWrapper>
         <h2>Galleri</h2>
         <Gallery>
-          <GalleryCard></GalleryCard>
+          {gallery &&
+            gallery.map((image, key) => {
+              const [modalIsOpen, setIsOpen] = useState(false);
+
+              function openModal() {
+                setIsOpen(true);
+              }
+
+              function afterOpenModal() {}
+
+              function closeModal() {
+                setIsOpen(false);
+              }
+
+              return (
+                <div key={key}>
+                  <GalleryCard>
+                    <Image
+                      src={urlFor(image.image).url()}
+                      alt={image.alt}
+                      fill
+                      style={{ objectFit: 'cover' }}
+                      sizes='(max-width: 300px)'
+                      onClick={openModal}
+                    />
+                  </GalleryCard>
+                  <Modal
+                    key={key}
+                    isOpen={modalIsOpen}
+                    onAfterOpen={afterOpenModal}
+                    onRequestClose={closeModal}
+                    contentLabel={image.alt}
+                    style={customStyles}
+                  >
+                    <Image
+                      src={urlFor(image.image).url()}
+                      alt={image.alt}
+                      fill
+                      style={{ objectFit: 'none' }}
+                      sizes='(max-width: 80vw)'
+                      onClick={closeModal}
+                    />
+                  </Modal>
+                </div>
+              );
+            })}
         </Gallery>
       </GalleryWrapper>
     </Wrapper>
