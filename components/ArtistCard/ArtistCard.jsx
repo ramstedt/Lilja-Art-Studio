@@ -118,6 +118,54 @@ const customStyles = {
     cursor: 'pointer',
   },
 };
+
+function GalleryModal({ image }) {
+  const [modalIsOpen, setIsOpen] = useState(false);
+
+  function openModal() {
+    setIsOpen(true);
+  }
+
+  function afterOpenModal() {
+    // references are now sync'd and can be accessed.
+  }
+
+  function closeModal() {
+    setIsOpen(false);
+  }
+
+  return (
+    <div>
+      <GalleryCard>
+        <Image
+          src={urlFor(image.image).url()}
+          alt={image.alt}
+          fill
+          style={{ objectFit: 'cover' }}
+          sizes='(max-width: 300px)'
+          onClick={openModal}
+        />
+      </GalleryCard>
+      <Modal
+        isOpen={modalIsOpen}
+        onAfterOpen={afterOpenModal}
+        onRequestClose={closeModal}
+        contentLabel={image.alt}
+        style={customStyles}
+      >
+        <Image
+          src={urlFor(image.image).url()}
+          alt={image.alt}
+          fill
+          style={{ objectFit: 'none' }}
+          sizes='(max-width: 80vw)'
+          onClick={closeModal}
+        />
+      </Modal>
+    </div>
+  );
+}
+
 export default function ArtistCard({
   portrait,
   name,
@@ -170,51 +218,9 @@ export default function ArtistCard({
         <h2>Galleri</h2>
         <Gallery>
           {gallery &&
-            gallery.map((image, key) => {
-              const [modalIsOpen, setIsOpen] = useState(false);
-
-              function openModal() {
-                setIsOpen(true);
-              }
-
-              function afterOpenModal() {}
-
-              function closeModal() {
-                setIsOpen(false);
-              }
-
-              return (
-                <div key={key}>
-                  <GalleryCard>
-                    <Image
-                      src={urlFor(image.image).url()}
-                      alt={image.alt}
-                      fill
-                      style={{ objectFit: 'cover' }}
-                      sizes='(max-width: 300px)'
-                      onClick={openModal}
-                    />
-                  </GalleryCard>
-                  <Modal
-                    key={key}
-                    isOpen={modalIsOpen}
-                    onAfterOpen={afterOpenModal}
-                    onRequestClose={closeModal}
-                    contentLabel={image.alt}
-                    style={customStyles}
-                  >
-                    <Image
-                      src={urlFor(image.image).url()}
-                      alt={image.alt}
-                      fill
-                      style={{ objectFit: 'none' }}
-                      sizes='(max-width: 80vw)'
-                      onClick={closeModal}
-                    />
-                  </Modal>
-                </div>
-              );
-            })}
+            gallery.map((image, key) => (
+              <GalleryModal key={key} image={image} alt={image.alt} />
+            ))}
         </Gallery>
       </GalleryWrapper>
     </Wrapper>
