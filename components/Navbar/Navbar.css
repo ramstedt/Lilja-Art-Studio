@@ -92,6 +92,16 @@ ul {
   top: 10px;
 }
 
+.wrapper .btn.close-btn svg {
+  width: 30px;
+  height: 30px;
+}
+
+.wrapper .btn.menu-btn svg {
+  width: 30px;
+  height: 30px;
+}
+
 @media screen and (max-width: 600px) {
   nav {
     width: fit-content;

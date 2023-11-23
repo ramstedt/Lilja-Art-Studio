@@ -59,7 +59,7 @@ export default function Artists() {
                 title={artist.name}
                 text={artist.shortText}
                 key={artist.slug.current + key}
-                image={urlFor(artist.portrait).url()}
+                image={artist.portrait && urlFor(artist.portrait).url()}
                 alt={artist.portrait.alt}
                 slug={`/tatuerare/${artist.slug.current}`}
               />

@@ -1,6 +1,7 @@
-import '@fortawesome/fontawesome-free/css/all.min.css';
 import Link from 'next/link';
 import styled from 'styled-components';
+import { IoClose } from 'react-icons/io5';
+import { HiMenuAlt3 } from 'react-icons/hi';
 
 const Icon = styled.i`
   color: ${(props) => props.theme.primary.fontColor.value};
@@ -15,7 +16,7 @@ function Nav() {
           <input type='radio' name='slider' id='close-btn' />
           <ul className='nav-links'>
             <label htmlFor='close-btn' className='btn close-btn'>
-              <Icon className='fas fa-times fa-xl' />
+              <IoClose />
             </label>
             <li>
               <label className='desktop-item'>
@@ -51,7 +52,7 @@ function Nav() {
             </li>
           </ul>
           <label htmlFor='menu-btn' className='btn menu-btn'>
-            <Icon className='fa-solid fa-bars-staggered fa-xl' />
+            <HiMenuAlt3 />
           </label>
         </div>
       </nav>

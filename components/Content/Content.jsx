@@ -1,5 +1,3 @@
-import '@fortawesome/fontawesome-free/css/all.min.css';
-import Link from 'next/link';
 import styled from 'styled-components';
 
 const Wrapper = styled.div`
