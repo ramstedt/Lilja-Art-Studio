@@ -1,4 +1,3 @@
-import ArtistCard from '@/components/ArtistCardSmall/ArtistCardSmall';
 import Layout from '@/components/Layout/Layout';
 import styled from 'styled-components';
 import placeholder from '@/public/images/placeholder.png';
