@@ -27,7 +27,7 @@ const About = styled.div`
   display: flex;
   gap: 1rem;
   flex-direction: column;
-  background: ${(props) => props.theme.secondary.backgroundColor.value};
+  background: ${(props) => props.theme.secondaryBackgroundColor.value};
   padding: 1rem;
   @media only screen and (min-width: 768px) {
     flex-direction: row;

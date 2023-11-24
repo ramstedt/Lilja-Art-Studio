@@ -78,7 +78,7 @@ const Accent = styled.div`
 
   hr {
     border: 0;
-    background: ${(props) => props.theme.primary.fontColor.value};
+    background: ${(props) => props.theme.fontColor.value};
     height: 1px;
     width: 47%;
     align-items: center;
@@ -88,7 +88,7 @@ const Accent = styled.div`
     width: 8px;
     height: 15px;
     border-radius: 50%;
-    background: ${(props) => props.theme.primary.fontColor.value};
+    background: ${(props) => props.theme.fontColor.value};
   }
 
   @media only screen and (min-width: 768px) {

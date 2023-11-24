@@ -8,10 +8,12 @@ const Theme = ({ children }) => {
 
   useEffect(() => {
     client
-      .fetch(`*[_type == "theme"]{primary, secondary}`)
+      .fetch(`*[_type == "theme"]`)
       .then((data) => {
         setTheme(data[0]);
         setLoading(false);
+        console.log(theme);
+        console.log(theme.fontColor.value);
       })
       .catch((error) => {
         console.error('Error:', error);

@@ -1,4 +1,8 @@
 import { FaCog } from 'react-icons/fa';
+import { FaCode } from 'react-icons/fa';
+import { RiLayoutBottom2Fill } from 'react-icons/ri';
+import { RiLayoutTop2Fill } from 'react-icons/ri';
+import { IoColorPaletteSharp } from 'react-icons/io5';
 
 export const myStructure = (S) =>
   S.list()
@@ -6,14 +10,27 @@ export const myStructure = (S) =>
     .items([
       S.listItem()
         .title('Config')
-        .icon(() => <FaCog />)
+        .icon(FaCog)
         .child(
           S.list()
             .title('Config')
             .items([
-              S.documentTypeListItem('theme').title('Theme'),
-              S.documentTypeListItem('hero').title('Hero'),
-              S.documentTypeListItem('footer').title('Footer'),
+              S.listItem()
+                .title('Metadata')
+                .icon(FaCode)
+                .child(S.document().schemaType('meta').documentId('meta')),
+              S.listItem()
+                .title('Theme')
+                .icon(IoColorPaletteSharp)
+                .child(S.document().schemaType('theme').documentId('theme')),
+              S.listItem()
+                .title('Hero')
+                .icon(RiLayoutTop2Fill)
+                .child(S.document().schemaType('hero').documentId('hero')),
+              S.listItem()
+                .title('Footer')
+                .icon(RiLayoutBottom2Fill)
+                .child(S.document().schemaType('footer').documentId('footer')),
             ])
         ),
       S.documentTypeListItem('artists').title('Artists'),

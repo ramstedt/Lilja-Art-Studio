@@ -1,14 +1,13 @@
 import styled from 'styled-components';
 import CTAButton from '../_atoms/CTAButton/CTAButton';
 import Image from 'next/image';
-import placeholder from '@/public/images/placeholder.png';
 
 const Wrapper = styled.div`
   border-style: solid;
   border-width: 1px;
   border-color: black;
   width: 300px;
-  background: ${(props) => props.theme.secondary.backgroundColor.value};
+  background: ${(props) => props.theme.secondaryBackgroundColor.value};
 `;
 
 const ImageWrapper = styled.div`
