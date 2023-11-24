@@ -15,7 +15,7 @@ const Main = styled.div`
 
 const MainText = styled.div`
   @media only screen and (min-width: 768px) {
-    max-width: 60%;
+    max-width: 45%;
   }
 `;
 
