@@ -1,7 +1,7 @@
 import { blockContent } from './schemas/blockContent';
 import { blockContentNoImage } from './schemas/blockContentNoImage';
 import { theme } from './schemas/theme';
-import { about } from './schemas/pages/about';
+import { home } from './schemas/pages/home';
 import { hero } from './schemas/hero';
 import { footer } from './schemas/footer';
 import { tatuerare } from './schemas/pages/tatuerare';
@@ -14,7 +14,7 @@ export const schema = {
     blockContentNoImage,
     theme,
     hero,
-    about,
+    home,
     footer,
     tatuerare,
     artist,

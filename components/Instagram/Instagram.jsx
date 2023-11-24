@@ -2,6 +2,18 @@ import { useEffect, useState } from 'react';
 import InstagramPost from '../_atoms/InstagramPost/InstagramPost';
 import styled from 'styled-components';
 
+const Wrapper = styled.div`
+  max-width: 1200px;
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+  margin: auto;
+  justify-content: center;
+  @media (min-width: 1024px) {
+    gap: 5rem;
+  }
+`;
+
 export async function getStaticProps({ params }) {
   const res = await fetch(
     `https://feeds.behold.so/zFgp2Jbbk23Ovf1ZUOhq/${params.id}`
@@ -23,19 +35,7 @@ export async function getStaticProps({ params }) {
   };
 }
 
-const Wrapper = styled.div`
-  max-width: 1200px;
-  display: flex;
-  gap: 1rem;
-  flex-wrap: wrap;
-  margin: auto;
-  justify-content: center;
-  @media (min-width: 1024px) {
-    gap: 5rem;
-  }
-`;
-
-export default function Instagram({ posts }) {
+export default function Instagram() {
   const [data, setData] = useState([]);
 
   useEffect(() => {
@@ -52,7 +52,6 @@ export default function Instagram({ posts }) {
           permalink: item.permalink,
         }));
         setData(mappedData);
-        console.log(mappedData);
       })
       .catch((error) => console.error('Error fetching data:', error));
   }, []);
