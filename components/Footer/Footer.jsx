@@ -2,6 +2,16 @@ import Image from 'next/image';
 import styled from 'styled-components';
 import placeholder from '@/public/images/placeholder.png';
 import { GrInstagram } from 'react-icons/gr';
+import { client } from '@/sanity/lib/client';
+import { useState, useEffect } from 'react';
+import imageUrlBuilder from '@sanity/image-url';
+import BlockContent from '@sanity/block-content-to-react';
+import Link from 'next/link';
+
+const builder = imageUrlBuilder(client);
+function urlFor(source) {
+  return builder.image(source);
+}
 
 const Wrapper = styled.footer``;
 
@@ -29,7 +39,7 @@ const ImageWrapper = styled.div`
   margin: auto;
   position: relative;
   width: 250px;
-  height: 150px;
+  height: 250px;
   @media only screen and (min-width: 768px) {
     margin: 0;
   }
@@ -40,22 +50,44 @@ const SocialMedia = styled.div`
 `;
 
 export default function Footer() {
+  const [footer, setFooter] = useState(null);
+  const [isLoading, setLoading] = useState(true);
+
+  useEffect(() => {
+    client
+      .fetch(`*[_type == "footer"]`)
+      .then((data) => {
+        setFooter(data[0]);
+        setLoading(false);
+      })
+      .catch((error) => {
+        console.error('Error:', error);
+      });
+  }, []);
+  if (isLoading) return <div></div>;
   return (
     <Wrapper>
       <MaxWidth>
         <Contact>
           <div>
             <h5>Kontakt</h5>
-            karin@email.se
+            <Link href={`mailto:${footer.email}`} target='_blank'>
+              {footer.email}
+            </Link>
+            <Link href={`tel:${footer.phone}`} target='_blank'>
+              {footer.phone}
+            </Link>
           </div>
           <div>
             <h5>Adress</h5>
-            Gatuvägen 45 <br />
-            113 43 Mölndal
+            <BlockContent blocks={footer && footer.address} />
+            <Link href={footer.gmapsUrl} target='_blank'>
+              Hitta hit
+            </Link>
           </div>
           <div>
             <h5>Organisationsnummer</h5>
-            000 - 000000
+            {footer.orgnumber}
           </div>
         </Contact>
         <SocialMedia>
@@ -64,7 +96,7 @@ export default function Footer() {
         </SocialMedia>
         <ImageWrapper>
           <Image
-            src={placeholder}
+            src={urlFor(footer.logo).url()}
             alt='alt text'
             fill
             style={{ objectFit: 'cover' }}
