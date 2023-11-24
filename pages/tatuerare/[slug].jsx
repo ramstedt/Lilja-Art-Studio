@@ -27,6 +27,7 @@ export default function ArtistPage() {
         .then((artistData) => {
           setArtist(artistData);
           setIsLoading(false);
+          console.log(artistData);
         })
         .catch((error) => {
           console.error('Error:', error);
@@ -41,14 +42,13 @@ export default function ArtistPage() {
       <ArtistCard
         portrait={urlFor(artist.portrait).url()}
         name={artist.name}
-        description={
-          <BlockContent blocks={artist.description} gallery={artist.gallery} />
-        }
+        description={<BlockContent blocks={artist.description} />}
         gallery={artist.gallery}
         email={artist.email}
         phone={artist.phone}
         instagram={artist.instagram}
         facebook={artist.facebook}
+        contact={<BlockContent blocks={artist.instructions} />}
       />
     </Layout>
   );

@@ -31,6 +31,9 @@ const About = styled.div`
   padding: 1rem;
   @media only screen and (min-width: 768px) {
     flex-direction: row;
+    width: 700px;
+  }
+  @media only screen and (min-width: 800px) {
     width: 720px;
   }
 `;
@@ -60,10 +63,13 @@ const TextWrapper = styled.div`
 const Contact = styled.div`
   width: 100%;
   p {
-    height: 2rem;
+    min-height: 2rem;
   }
   @media only screen and (min-width: 768px) {
-    width: 20%;
+    width: 80%;
+  }
+  @media only screen and (min-width: 1441px) {
+    width: 30%;
   }
 `;
 
@@ -175,6 +181,7 @@ export default function ArtistCard({
   phone,
   instagram,
   facebook,
+  contact,
 }) {
   return (
     <Wrapper>
@@ -195,8 +202,16 @@ export default function ArtistCard({
       </About>
       <Contact>
         <h2>Kontaktinformation</h2>
-        {email ? <p>Email: {email}</p> : null}
-        {phone ? <p>Telefon: {phone}</p> : null}
+        {email ? (
+          <p>
+            <b>Email:</b> {email}
+          </p>
+        ) : null}
+        {phone ? (
+          <p>
+            <b>Telefon:</b> {phone}
+          </p>
+        ) : null}
         <SocialMedia>
           <div>
             {facebook ? (
@@ -213,6 +228,13 @@ export default function ArtistCard({
             ) : null}
           </div>
         </SocialMedia>
+        <p>
+          {contact}
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Pariatur
+          cumque consequuntur expedita cupiditate commodi molestiae ducimus
+          tempore? Commodi odit sed adipisci voluptatem aperiam, dicta,
+          laudantium cum harum, sunt consequatur ullam!
+        </p>
       </Contact>
       <GalleryWrapper>
         <h2>Galleri</h2>

@@ -19,36 +19,16 @@ function Nav() {
               <IoClose />
             </label>
             <li>
-              <label className='desktop-item'>
-                Om Oss <i className='fa-solid fa-chevron-down fa-xs'></i>
-              </label>
-              <input type='checkbox' id='showDrop' />
-              <label htmlFor='showDrop' className='mobile-item'>
-                Om Oss <i className='fa-solid fa-chevron-down fa-2xs'></i>
-              </label>
-              <ul className='drop-menu'>
-                <li>
-                  <Link href='/historia'>Länk 1</Link>
-                </li>
-                <li>
-                  <Link href='/samarbetspartners'>Länk 2</Link>
-                </li>
-                <li>
-                  <Link href='/gdpr'>Länk 3</Link>
-                </li>
-              </ul>
+              <Link href='/'>Hem</Link>
+            </li>
+            <li>
+              <Link href='/studio'>Studion</Link>
             </li>
             <li>
               <Link href='/tatuerare'>Våra tatuerare</Link>
             </li>
             <li>
-              <Link href='/galleri'>Galleri</Link>
-            </li>
-            <li>
-              <Link href='/aktuellt'>Aktuellt</Link>
-            </li>
-            <li>
-              <Link href='/lankar'>Länkar</Link>
+              <Link href='/studio'>Lediga tider</Link>
             </li>
           </ul>
           <label htmlFor='menu-btn' className='btn menu-btn'>

@@ -47,7 +47,7 @@ export const artist = {
     {
       name: 'instructions',
       title: 'How to contact',
-      type: 'text',
+      type: 'blockContentNoImage',
       description: 'Specifika instruktioner om hur man kontaktar för bokning',
     },
     {
