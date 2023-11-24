@@ -40,8 +40,14 @@ export const myStructure = (S) =>
           S.list()
             .title('Pages')
             .items([
-              S.documentTypeListItem('about').title('About'),
-              S.documentTypeListItem('tatuerare').title('Tatuerare'),
+              S.listItem()
+                .title('About')
+                .child(S.document().schemaType('about').documentId('about')),
+              S.listItem()
+                .title('Tatuerare')
+                .child(
+                  S.document().schemaType('tatuerare').documentId('tatuerare')
+                ),
             ])
         ),
     ]);

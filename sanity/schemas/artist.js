@@ -16,8 +16,9 @@ export const artist = {
       name: 'slug',
       title: 'Slug',
       type: 'slug',
-      validation: (Rule) => Rule.required(),
-      description: 'Slutet på url, exempelvis: liljaartstudio.se/SLUG',
+      validation: (Rule) => [Rule.required().error('A value is required!')],
+      description:
+        'Slutet på url, exempelvis: liljaartstudio.se/tatuerare/SLUG',
       options: {
         source: 'name',
         maxLength: 96,
@@ -43,11 +44,17 @@ export const artist = {
       title: 'Facebook',
       type: 'url',
     },
-
+    {
+      name: 'instructions',
+      title: 'How to contact',
+      type: 'text',
+      description: 'Specifika instruktioner om hur man kontaktar för bokning',
+    },
     {
       name: 'portrait',
       title: 'Portrait',
       type: 'image',
+      validation: (Rule) => Rule.required(),
       options: {
         hotspot: true,
       },

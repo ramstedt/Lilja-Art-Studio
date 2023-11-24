@@ -44,12 +44,9 @@ export default function Artists() {
   if (isLoading) return <div></div>;
   return (
     <Layout>
-      <h1>{artistPage.title}</h1>
+      <h1>{artistPage && artistPage.title}</h1>
       <div>
-        <BlockContent blocks={artistPage.body} />
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis sint,
-        eum culpa, ipsum aperiam voluptatem dolores aliquam delectus molestiae,
-        blanditiis ratione totam et nihil labore ea quis dignissimos amet sed?
+        <BlockContent blocks={artistPage && artistPage.body} />
       </div>
       <ArtistWrapper>
         {artists &&
