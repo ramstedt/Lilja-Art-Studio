@@ -1,5 +1,3 @@
-import { RiLayoutBottom2Fill } from 'react-icons/ri';
-
 export const footer = {
   name: 'footer',
   title: 'Footer',
@@ -18,7 +16,7 @@ export const footer = {
     {
       name: 'address',
       title: 'Adress',
-      type: 'blockContentNoImage',
+      type: 'blockContentPlain',
     },
     {
       name: 'gmapsUrl',
@@ -52,6 +50,8 @@ export const footer = {
           name: 'alt',
           type: 'string',
           title: 'Alternative Text',
+          description:
+            'Enligt WCAG2 måste bilder ha en text som beskriver bilden för de som inte kan se. https://bernskioldmedia.com/sv/sa-skriver-du-bra-alt-texter-till-bilder-for-battre-seo-och-tillganglighet',
           validation: (Rule) => Rule.required(),
         },
       ],

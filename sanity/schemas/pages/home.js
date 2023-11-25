@@ -1,10 +1,7 @@
-import { HiInformationCircle } from 'react-icons/hi';
-
 export const home = {
   name: 'home',
   title: 'Home',
   type: 'document',
-  icon: HiInformationCircle,
   fields: [
     {
       name: 'title',
@@ -15,6 +12,8 @@ export const home = {
       name: 'mainImage',
       title: 'Main image',
       type: 'image',
+      description:
+        'Försök hålla filen så liten som möjligt för snabbare laddning. Bra sida för optimering av bilder: https://squoosh.app',
       options: {
         hotspot: true,
       },
@@ -23,13 +22,15 @@ export const home = {
           name: 'alt',
           type: 'string',
           title: 'Alternative Text',
+          description:
+            'Enligt WCAG2 måste bilder ha en text som beskriver bilden för de som inte kan se. https://bernskioldmedia.com/sv/sa-skriver-du-bra-alt-texter-till-bilder-for-battre-seo-och-tillganglighet',
         },
       ],
     },
     {
       name: 'body',
       title: 'Body',
-      type: 'blockContent',
+      type: 'blockContentNoImage',
     },
   ],
 };

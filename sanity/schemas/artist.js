@@ -1,10 +1,7 @@
-import { BsPersonFill } from 'react-icons/bs';
-
 export const artist = {
   name: 'artists',
   title: 'Artists',
   type: 'document',
-  icon: BsPersonFill,
   fields: [
     {
       name: 'name',
@@ -54,6 +51,8 @@ export const artist = {
       name: 'portrait',
       title: 'Portrait',
       type: 'image',
+      description:
+        'Försök hålla filen så liten som möjligt för snabbare laddning. Bra sida för optimering av bilder: https://squoosh.app',
       validation: (Rule) => Rule.required(),
       options: {
         hotspot: true,
@@ -71,7 +70,7 @@ export const artist = {
       name: 'shortText',
       title: 'Short Text',
       type: 'string',
-      description: "shows up in 'våra tatuerare'",
+      description: "Syns i 'våra tatuerare'",
     },
     {
       name: 'description',
@@ -82,8 +81,6 @@ export const artist = {
     {
       name: 'gallery',
       title: 'Gallery',
-      description:
-        'images will be resized to squares no larger than 252 x 252 pixels ',
       type: 'array',
       options: {
         layout: 'grid',
@@ -98,13 +95,15 @@ export const artist = {
               type: 'string',
               title: 'Alternative text',
               description:
-                'Describe your image with as much details as possible. It will help the website be more visible in Google searches + makes the website more accessible. Read more here: https://bernskioldmedia.com/sv/sa-skriver-du-bra-alt-texter-till-bilder-for-battre-seo-och-tillganglighet',
+                'Enligt WCAG2 måste bilder ha en text som beskriver bilden för de som inte kan se. https://bernskioldmedia.com/sv/sa-skriver-du-bra-alt-texter-till-bilder-for-battre-seo-och-tillganglighet',
               validation: (Rule) => Rule.required(),
             },
             {
               name: 'image',
               type: 'image',
               title: 'Image',
+              description:
+                'Försök hålla filen så liten som möjligt för snabbare laddning. Bra sida för optimering av bilder: https://squoosh.app',
               options: {
                 hotspot: true,
               },

@@ -1,5 +1,6 @@
-import { blockContent } from './schemas/blockContent';
-import { blockContentNoImage } from './schemas/blockContentNoImage';
+import { blockContent } from './schemas/blockContent/blockContent';
+import { blockContentNoImage } from './schemas/blockContent/blockContentNoImage';
+import { blockContentPlain } from './schemas/blockContent/blockContentPlain';
 import { theme } from './schemas/theme';
 import { home } from './schemas/pages/home';
 import { hero } from './schemas/hero';
@@ -12,6 +13,7 @@ export const schema = {
   types: [
     blockContent,
     blockContentNoImage,
+    blockContentPlain,
     theme,
     hero,
     home,

@@ -1,8 +1,8 @@
-import { FaCog } from 'react-icons/fa';
-import { FaCode } from 'react-icons/fa';
-import { RiLayoutBottom2Fill } from 'react-icons/ri';
-import { RiLayoutTop2Fill } from 'react-icons/ri';
+import { FaCog, FaCode } from 'react-icons/fa';
+import { RiLayoutBottom2Fill, RiLayoutTop2Fill } from 'react-icons/ri';
 import { IoColorPaletteSharp } from 'react-icons/io5';
+import { BsPeopleFill, BsPersonFill } from 'react-icons/bs';
+import { HiInformationCircle } from 'react-icons/hi';
 
 export const myStructure = (S) =>
   S.list()
@@ -33,7 +33,7 @@ export const myStructure = (S) =>
                 .child(S.document().schemaType('footer').documentId('footer')),
             ])
         ),
-      S.documentTypeListItem('artists').title('Artists'),
+      S.documentTypeListItem('artists').title('Artists').icon(BsPersonFill),
       S.listItem()
         .title('Pages')
         .child(
@@ -42,12 +42,14 @@ export const myStructure = (S) =>
             .items([
               S.listItem()
                 .title('Home')
-                .child(S.document().schemaType('home').documentId('home')),
+                .child(S.document().schemaType('home').documentId('home'))
+                .icon(HiInformationCircle),
               S.listItem()
                 .title('Tatuerare')
                 .child(
                   S.document().schemaType('tatuerare').documentId('tatuerare')
-                ),
+                )
+                .icon(BsPeopleFill),
             ])
         ),
     ]);
