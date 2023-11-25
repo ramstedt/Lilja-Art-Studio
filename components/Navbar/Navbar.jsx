@@ -26,6 +26,9 @@ function Nav() {
             <li>
               <Link href='/tatuerare'>Våra tatuerare</Link>
             </li>
+            <li>
+              <Link href='/lediga-tider'>Lediga tider</Link>
+            </li>
           </ul>
           <label htmlFor='menu-btn' className='btn menu-btn'>
             <HiMenuAlt3 />

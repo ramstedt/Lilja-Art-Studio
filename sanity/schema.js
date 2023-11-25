@@ -9,6 +9,7 @@ import { tatuerare } from './schemas/pages/tatuerare';
 import { artist } from './schemas/artist';
 import { meta } from './schemas/meta';
 import { studio } from './schemas/pages/studio';
+import { schedule } from './schemas/pages/schedule';
 
 export const schema = {
   types: [
@@ -23,5 +24,6 @@ export const schema = {
     artist,
     meta,
     studio,
+    schedule,
   ],
 };

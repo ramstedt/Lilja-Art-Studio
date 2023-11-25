@@ -3,6 +3,7 @@ import { RiLayoutBottom2Fill, RiLayoutTop2Fill } from 'react-icons/ri';
 import { IoColorPaletteSharp } from 'react-icons/io5';
 import { BsPeopleFill, BsPersonFill } from 'react-icons/bs';
 import { PiHouseLineFill, PiOfficeChairFill } from 'react-icons/pi';
+import { GrSchedule } from 'react-icons/gr';
 
 export const myStructure = (S) =>
   S.list()
@@ -54,6 +55,12 @@ export const myStructure = (S) =>
                   S.document().schemaType('tatuerare').documentId('tatuerare')
                 )
                 .icon(BsPeopleFill),
+              S.listItem()
+                .title('Lediga tider')
+                .child(
+                  S.document().schemaType('schedule').documentId('schedule')
+                )
+                .icon(GrSchedule),
             ])
         ),
     ]);

@@ -4,45 +4,8 @@ import Image from 'next/image';
 import Instagram from '@/components/Instagram/Instagram';
 import { useState, useEffect } from 'react';
 import { client } from '@/sanity/lib/client';
-import BlockContent from '@sanity/block-content-to-react';
 import imageUrlBuilder from '@sanity/image-url';
 import TextblockImage from '@/components/TextblockImage/TextblockImage';
-
-const Main = styled.div`
-  background: ${(props) => props.theme.secondaryBackgroundColor.value};
-  padding: 1rem;
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
-  @media only screen and (min-width: 768px) {
-    flex-direction: row;
-  }
-`;
-
-const MainText = styled.div`
-  @media only screen and (min-width: 768px) {
-    max-width: 45%;
-  }
-`;
-
-const MainImage = styled.div`
-  position: relative;
-  width: 100%;
-  height: 250px;
-  margin-top: 0;
-  @media only screen and (min-width: 768px) {
-    width: 100%;
-    height: 300px;
-  }
-  @media only screen and (min-width: 1024px) {
-    width: 100%;
-    height: 350px;
-  }
-  @media only screen and (min-width: 1440px) {
-    width: 100%;
-    height: 520px;
-  }
-`;
 
 const builder = imageUrlBuilder(client);
 function urlFor(source) {

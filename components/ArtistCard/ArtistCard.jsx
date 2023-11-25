@@ -68,6 +68,12 @@ const Contact = styled.div`
   @media only screen and (min-width: 768px) {
     width: 80%;
   }
+  @media only screen and (min-width: 1024px) {
+    width: 20%;
+  }
+  @media only screen and (min-width: 1200px) {
+    width: 25%;
+  }
   @media only screen and (min-width: 1441px) {
     width: 30%;
   }
@@ -193,6 +199,7 @@ export default function ArtistCard({
             alt='alt text'
             fill
             style={{ objectFit: 'cover' }}
+            priority={true}
           />
         </ImageWrapper>
         <TextWrapper>

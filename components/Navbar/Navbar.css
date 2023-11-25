@@ -102,14 +102,16 @@ ul {
   height: 30px;
 }
 
-@media screen and (max-width: 320px) {
+@media screen and (max-width: 460px) {
   nav {
     width: fit-content;
     background: transparent;
     z-index: 100;
   }
-  .wrapper {
+  nav .wrapper {
     padding: 0rem 0.5rem !important;
+    width: 95vw;
+    justify-content: flex-end;
   }
   .content .row img {
     width: 80%;
