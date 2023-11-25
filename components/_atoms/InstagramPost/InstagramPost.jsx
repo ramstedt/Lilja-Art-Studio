@@ -62,6 +62,9 @@ const InstagramPost = ({ imageUrl, caption, link }) => {
     cursor: pointer;
     position: relative;
     border-radius: 5%;
+    -webkit-box-shadow: -5px 5px 10px -10px rgba(0, 0, 0, 0.61);
+    -moz-box-shadow: -5px 5px 10px -10px rgba(0, 0, 0, 0.61);
+    box-shadow: -5px 5px 10px -10px rgba(0, 0, 0, 0.61);
 
     &:hover ${Media} img {
       transform: scale(1.1);
