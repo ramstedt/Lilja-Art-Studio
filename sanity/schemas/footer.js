@@ -16,7 +16,7 @@ export const footer = {
     {
       name: 'address',
       title: 'Adress',
-      type: 'blockContentNoImage',
+      type: 'blockContentPlain',
     },
     {
       name: 'gmapsUrl',

@@ -30,7 +30,7 @@ export const home = {
     {
       name: 'body',
       title: 'Body',
-      type: 'blockContent',
+      type: 'blockContentNoImage',
     },
   ],
 };

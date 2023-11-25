@@ -11,7 +11,7 @@ export const tatuerare = {
     {
       name: 'body',
       title: 'Body',
-      type: 'blockContent',
+      type: 'blockContentNoImage',
     },
   ],
 };
