@@ -228,13 +228,7 @@ export default function ArtistCard({
             ) : null}
           </div>
         </SocialMedia>
-        <p>
-          {contact}
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Pariatur
-          cumque consequuntur expedita cupiditate commodi molestiae ducimus
-          tempore? Commodi odit sed adipisci voluptatem aperiam, dicta,
-          laudantium cum harum, sunt consequatur ullam!
-        </p>
+        <p>{contact}</p>
       </Contact>
       <GalleryWrapper>
         <h2>Galleri</h2>

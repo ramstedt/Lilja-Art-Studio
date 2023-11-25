@@ -1,12 +1,12 @@
 import Image from 'next/image';
 import styled from 'styled-components';
-import placeholder from '@/public/images/placeholder.png';
-import { GrInstagram } from 'react-icons/gr';
 import { client } from '@/sanity/lib/client';
 import { useState, useEffect } from 'react';
 import imageUrlBuilder from '@sanity/image-url';
 import BlockContent from '@sanity/block-content-to-react';
 import Link from 'next/link';
+import { IoLogoInstagram } from 'react-icons/io';
+import { IoLogoFacebook } from 'react-icons/io';
 
 const builder = imageUrlBuilder(client);
 function urlFor(source) {
@@ -33,6 +33,7 @@ const Contact = styled.div`
   display: flex;
   flex-direction: column;
   gap: 1rem;
+  align-self: flex-start;
 `;
 
 const ImageWrapper = styled.div`
@@ -47,6 +48,14 @@ const ImageWrapper = styled.div`
 
 const SocialMedia = styled.div`
   align-self: flex-start;
+  div {
+    display: flex;
+    gap: 0.5rem;
+  }
+  a svg {
+    height: 30px;
+    width: 30px;
+  }
 `;
 
 export default function Footer() {
@@ -69,21 +78,27 @@ export default function Footer() {
     <Wrapper>
       <MaxWidth>
         <Contact>
-          <div>
-            <h5>Kontakt</h5>
-            <Link href={`mailto:${footer.email}`} target='_blank'>
-              {footer.email}
-            </Link>
-            <Link href={`tel:${footer.phone}`} target='_blank'>
-              {footer.phone}
-            </Link>
-          </div>
+          {footer.email || footer.phone ? (
+            <div>
+              <h5>Kontakt</h5> {footer.email ? 'Email: ' : null}
+              <Link href={`mailto:${footer.email}`} target='_blank'>
+                {footer.email}
+              </Link>
+              <br />
+              {footer.phone ? 'Tel: ' : null}
+              <Link href={`tel:${footer.phone}`} target='_blank'>
+                {footer.phone}
+              </Link>
+            </div>
+          ) : null}
           <div>
             <h5>Adress</h5>
             <BlockContent blocks={footer && footer.address} />
-            <Link href={footer.gmapsUrl} target='_blank'>
-              Hitta hit
-            </Link>
+            {footer.gmapsUrl ? (
+              <Link href={footer.gmapsUrl} target='_blank'>
+                Hitta hit
+              </Link>
+            ) : null}
           </div>
           <div>
             <h5>Organisationsnummer</h5>
@@ -92,7 +107,18 @@ export default function Footer() {
         </Contact>
         <SocialMedia>
           <h5>Sociala medier</h5>
-          <GrInstagram />
+          <div>
+            {footer.instagram ? (
+              <Link href={footer.instagram} target='_blank'>
+                <IoLogoInstagram />
+              </Link>
+            ) : null}
+            {footer.facebook ? (
+              <Link href={footer.facebook} target='_blank'>
+                <IoLogoFacebook />
+              </Link>
+            ) : null}
+          </div>
         </SocialMedia>
         <ImageWrapper>
           <Image
