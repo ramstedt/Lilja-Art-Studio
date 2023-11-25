@@ -29,8 +29,13 @@ const About = styled.div`
   flex-direction: column;
   background: ${(props) => props.theme.secondaryBackgroundColor.value};
   padding: 1rem;
+  flex-wrap: wrap;
   @media only screen and (min-width: 768px) {
-    flex-direction: row;
+    display: grid;
+    grid-template-columns: 0.8fr 1fr;
+    grid-template-rows: 0.1fr 1fr;
+    grid-column-gap: 1rem;
+    grid-row-gap: 0px;
     width: 700px;
   }
   @media only screen and (min-width: 800px) {
@@ -51,20 +56,19 @@ const ImageWrapper = styled.div`
   @media only screen and (min-width: 768px) {
     width: 400px;
     height: 500px;
+    margin: 0;
+    grid-area: 2 / 1 / 3 / 2;
   }
 `;
 
 const TextWrapper = styled.div`
   @media only screen and (min-width: 768px) {
-    width: 60%;
+    grid-area: 2 / 2 / 3 / 3;
   }
 `;
 
 const Contact = styled.div`
   width: 100%;
-  p {
-    min-height: 2rem;
-  }
   @media only screen and (min-width: 768px) {
     width: 80%;
   }
@@ -83,13 +87,15 @@ const GalleryWrapper = styled.div`
   width: 100%;
 `;
 
+const Title = styled.div`
+  grid-area: 1 / 1 / 2 / 2;
+`;
+
 const Gallery = styled.div`
   display: flex;
   gap: 1rem;
   flex-wrap: wrap;
   justify-content: space-around;
-  @media only screen and (min-width: 768px) {
-  }
 `;
 
 const GalleryCard = styled.div`
@@ -117,6 +123,7 @@ const GalleryCard = styled.div`
 const SocialMedia = styled.div`
   display: flex;
   gap: 0.5rem;
+  margin: 1rem 0;
   a svg {
     height: 30px;
     width: 30px;
@@ -192,6 +199,9 @@ export default function ArtistCard({
   return (
     <Wrapper>
       <About>
+        <Title>
+          <h1>{name}</h1>
+        </Title>
         <ImageWrapper>
           <Image
             src={portrait}
@@ -202,22 +212,19 @@ export default function ArtistCard({
             priority={true}
           />
         </ImageWrapper>
-        <TextWrapper>
-          <h1>{name}</h1>
-          {description}
-        </TextWrapper>
+        <TextWrapper>{description}</TextWrapper>
       </About>
       <Contact>
         <h2>Kontaktinformation</h2>
         {email ? (
-          <p>
+          <div>
             <b>Email:</b> {email}
-          </p>
+          </div>
         ) : null}
         {phone ? (
-          <p>
+          <div>
             <b>Telefon:</b> {phone}
-          </p>
+          </div>
         ) : null}
         <SocialMedia>
           <div>
@@ -235,7 +242,12 @@ export default function ArtistCard({
             ) : null}
           </div>
         </SocialMedia>
-        <p>{contact}</p>
+        {contact.props.blocks ? (
+          <>
+            <h2>Tidsbokning</h2>
+            <div>{contact}</div>
+          </>
+        ) : null}
       </Contact>
       <GalleryWrapper>
         <h2>Galleri</h2>
