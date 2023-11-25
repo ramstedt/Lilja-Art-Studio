@@ -2,7 +2,7 @@ import { FaCog, FaCode } from 'react-icons/fa';
 import { RiLayoutBottom2Fill, RiLayoutTop2Fill } from 'react-icons/ri';
 import { IoColorPaletteSharp } from 'react-icons/io5';
 import { BsPeopleFill, BsPersonFill } from 'react-icons/bs';
-import { HiInformationCircle } from 'react-icons/hi';
+import { PiHouseLineFill, PiOfficeChairFill } from 'react-icons/pi';
 
 export const myStructure = (S) =>
   S.list()
@@ -43,7 +43,11 @@ export const myStructure = (S) =>
               S.listItem()
                 .title('Home')
                 .child(S.document().schemaType('home').documentId('home'))
-                .icon(HiInformationCircle),
+                .icon(PiHouseLineFill),
+              S.listItem()
+                .title('Studio')
+                .child(S.document().schemaType('studio').documentId('studio'))
+                .icon(PiOfficeChairFill),
               S.listItem()
                 .title('Tatuerare')
                 .child(

@@ -126,6 +126,8 @@ export default function Footer() {
             alt='alt text'
             fill
             style={{ objectFit: 'cover' }}
+            priority={false}
+            sizes='(max-width: 250px)'
           />
         </ImageWrapper>
       </MaxWidth>

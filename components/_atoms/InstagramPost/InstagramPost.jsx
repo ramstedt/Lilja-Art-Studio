@@ -76,55 +76,6 @@ const InstagramPost = ({ imageUrl, caption, link }) => {
     window.open(link, '_blank');
   };
 
-  const Media = styled.div`
-    width: 140px;
-    height: 140px;
-    img {
-      transition: transform 0.3s ease-in-out;
-    }
-
-    @media (min-width: 375px) {
-      width: 170px;
-      height: 170px;
-    }
-
-    @media (min-width: 425px) {
-      width: 180px;
-      height: 180px;
-    }
-    @media (min-width: 768px) {
-      width: 200px;
-      height: 200px;
-    }
-    @media (min-width: 1024px) {
-      width: 300px;
-      height: 300px;
-    }
-  `;
-
-  const Post = styled.div`
-    position: relative;
-    overflow: hidden;
-    cursor: pointer;
-    position: relative;
-    border-radius: 5%;
-    -webkit-box-shadow: -5px 5px 10px -10px rgba(0, 0, 0, 0.61);
-    -moz-box-shadow: -5px 5px 10px -10px rgba(0, 0, 0, 0.61);
-    box-shadow: -5px 5px 10px -10px rgba(0, 0, 0, 0.61);
-
-    &:hover ${Media} img {
-      transform: scale(1.1);
-    }
-
-    &:hover ${Overlay} {
-      opacity: 1;
-    }
-  `;
-
-  const Text = styled.div`
-    color: #000;
-    text-align: center;
-  `;
   const shortCaption =
     caption.length > 80 ? caption.substr(0, 80 - 1) + '...' : caption;
   return (

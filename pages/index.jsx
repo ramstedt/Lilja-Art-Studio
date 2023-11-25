@@ -6,6 +6,7 @@ import { useState, useEffect } from 'react';
 import { client } from '@/sanity/lib/client';
 import BlockContent from '@sanity/block-content-to-react';
 import imageUrlBuilder from '@sanity/image-url';
+import TextblockImage from '@/components/TextblockImage/TextblockImage';
 
 const Main = styled.div`
   background: ${(props) => props.theme.secondaryBackgroundColor.value};
@@ -69,20 +70,11 @@ export default function Home() {
   return (
     <Layout>
       <h1>{home.title}</h1>
-      <Main>
-        <MainText>
-          <BlockContent blocks={home && home.body} />
-        </MainText>
-        <MainImage>
-          <Image
-            src={home.mainImage && urlFor(home.mainImage).url()}
-            alt='alt text'
-            fill
-            style={{ objectFit: 'contain' }}
-            sizes='(max-width: 300px)'
-          />
-        </MainImage>
-      </Main>
+      <TextblockImage
+        text={home && home.body}
+        image={home.mainImage && urlFor(home.mainImage).url()}
+        alt={home.mainImage.alt}
+      />
       <h2>Det senaste från Instagram</h2>
       <Instagram />
     </Layout>

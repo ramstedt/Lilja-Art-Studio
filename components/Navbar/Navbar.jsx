@@ -11,7 +11,6 @@ function Nav() {
     <>
       <nav>
         <div className='wrapper'>
-          <div className='logo'></div>
           <input type='radio' name='slider' id='menu-btn' />
           <input type='radio' name='slider' id='close-btn' />
           <ul className='nav-links'>
@@ -26,9 +25,6 @@ function Nav() {
             </li>
             <li>
               <Link href='/tatuerare'>Våra tatuerare</Link>
-            </li>
-            <li>
-              <Link href='/studio'>Lediga tider</Link>
             </li>
           </ul>
           <label htmlFor='menu-btn' className='btn menu-btn'>

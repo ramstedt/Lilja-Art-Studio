@@ -2,8 +2,8 @@ nav {
   width: 100%;
   font-family: 'Oswald', Courier, monospace;
   position: absolute;
-  right: 0;
   top: 287px;
+  background: rgb(241, 241, 241);
 }
 
 @media only screen and (min-width: 768px) {
@@ -14,14 +14,14 @@ nav {
 
 nav .wrapper {
   position: relative;
-  max-width: 1300px;
+  max-width: 1440px;
   padding: 0px 30px 0px 0px;
   height: 70px;
   line-height: 70px;
   margin: auto;
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: center;
 }
 .wrapper .logo a {
   font-size: 30px;
@@ -47,7 +47,7 @@ nav .wrapper {
 }
 .desktop-item:hover,
 .nav-links li a:hover {
-  background: #f4f4f4;
+  background: #ffffff9e;
 }
 .nav-links .mobile-item {
   display: none;
@@ -102,7 +102,7 @@ ul {
   height: 30px;
 }
 
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 320px) {
   nav {
     width: fit-content;
     background: transparent;

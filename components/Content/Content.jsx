@@ -6,7 +6,8 @@ const Wrapper = styled.div`
   flex-direction: column;
   gap: 1rem;
   max-width: 1440px;
-  margin: auto;
+  margin-left: auto;
+  margin-right: auto;
 `;
 function Content({ children }) {
   return <Wrapper>{children}</Wrapper>;

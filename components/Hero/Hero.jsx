@@ -138,6 +138,7 @@ const Hero = () => {
           alt={hero.image.alt}
           fill
           style={{ objectFit: 'cover' }}
+          priority={true}
         />
       </ImageWrapper>
     </Wrapper>
