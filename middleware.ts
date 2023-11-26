@@ -8,7 +8,7 @@ export function middleware(request: NextRequest) {
   });
 
   const cspHeader = `
-    frame-ancestors https://github.com https://google.com;
+    frame-ancestors https://github.com https://google.com https://liljaartstudio.se;
   `;
 
   const contentSecurityPolicyHeaderValue = cspHeader
