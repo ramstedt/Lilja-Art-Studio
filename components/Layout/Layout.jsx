@@ -33,6 +33,7 @@ function Layout({ children }) {
   return (
     <Theme>
       <Head>
+        <link rel='canonical' href='https://lilja-art-studio.vercel.app' />
         <title>{metadata.title}</title>
         <link rel='icon' href={urlFor(metadata.favicon).url()} />
         <meta name='description' content={metadata.description} />
