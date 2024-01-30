@@ -4,14 +4,9 @@ export const footer = {
   type: 'document',
   fields: [
     {
-      name: 'phone',
-      title: 'Phone',
-      type: 'string',
-    },
-    {
-      name: 'email',
-      title: 'Email',
-      type: 'string',
+      name: 'contact',
+      title: 'Kontakt',
+      type: 'blockContentPlain',
     },
     {
       name: 'address',
@@ -24,11 +19,6 @@ export const footer = {
       type: 'url',
       description:
         "För att få fram en url, sök fram adressen på Google maps, klicka på 'dela' och kopiera länken.",
-    },
-    {
-      name: 'orgnumber',
-      title: 'Organisationsnummer',
-      type: 'string',
     },
     {
       name: 'instagram',

@@ -78,19 +78,10 @@ export default function Footer() {
     <Wrapper>
       <MaxWidth>
         <Contact>
-          {footer.email || footer.phone ? (
-            <div>
-              <h5>Kontakt</h5> {footer.email ? 'Email: ' : null}
-              <Link href={`mailto:${footer.email}`} target='_blank'>
-                {footer.email}
-              </Link>
-              <br />
-              {footer.phone ? 'Tel: ' : null}
-              <Link href={`tel:${footer.phone}`} target='_blank'>
-                {footer.phone}
-              </Link>
-            </div>
-          ) : null}
+          <div>
+            <h5>Kontakt</h5>
+            <BlockContent blocks={footer && footer.contact} />
+          </div>
           <div>
             <h5>Adress</h5>
             <BlockContent blocks={footer && footer.address} />
@@ -99,10 +90,8 @@ export default function Footer() {
                 Hitta hit
               </Link>
             ) : null}
-          </div>
-          <div>
-            <h5>Organisationsnummer</h5>
-            {footer.orgnumber}
+            <br />
+            <br />
           </div>
         </Contact>
         <SocialMedia>
