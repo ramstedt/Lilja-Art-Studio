@@ -35,7 +35,11 @@ function Layout({ children }) {
       <Head>
         <link rel='canonical' href='https://lilja-art-studio.vercel.app' />
         <title>{metadata.title}</title>
-        <link rel='icon' href={urlFor(metadata.favicon).url()} />
+        <link
+          rel='icon'
+          href={urlFor(metadata.favicon).url()}
+          type='image/x-icon'
+        />
         <meta name='description' content={metadata.description} />
         <meta name='keywords' content={metadata.keywords} />
         <meta name='robots' content='index, follow' />
