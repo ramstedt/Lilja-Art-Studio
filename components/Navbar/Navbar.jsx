@@ -18,13 +18,10 @@ function Nav() {
               <IoClose />
             </label>
             <li>
-              <Link href='/'>Hem</Link>
+              <Link href='/'>Studion</Link>
             </li>
             <li>
-              <Link href='/studio'>Studion</Link>
-            </li>
-            <li>
-              <Link href='/tatuerare'>Våra tatuerare</Link>
+              <Link href='/information'>Information</Link>
             </li>
             <li>
               <Link href='/lediga-tider'>Lediga tider</Link>
