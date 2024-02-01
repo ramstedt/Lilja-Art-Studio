@@ -60,12 +60,6 @@ export default function Home() {
   if (loading) return <div></div>;
   return (
     <Layout>
-      {/* <h1>{home.title}</h1>
-      <TextblockImage
-        text={home && home.body}
-        image={home.mainImage && urlFor(home.mainImage).url()}
-        alt={home.mainImage.alt}
-      /> */}
       <h1>{artistPage && artistPage.title}</h1>
       <div>
         <BlockContent blocks={artistPage && artistPage.body} />
@@ -86,7 +80,8 @@ export default function Home() {
           })}
       </ArtistWrapper>
       <h2>Det senaste från Instagram</h2>
-      <Instagram />
+      Kommer snart
+      {/* <Instagram /> */}
     </Layout>
   );
 }

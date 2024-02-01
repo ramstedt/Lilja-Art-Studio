@@ -56,7 +56,6 @@ export default function Schedule() {
   return (
     <Layout>
       <h1>{schedule.title}</h1>
-      {console.log(schedule)}
       <ScheduleWrapper>
         {schedule.jan === undefined ? null : (
           <Month>

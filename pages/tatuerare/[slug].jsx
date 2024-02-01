@@ -27,7 +27,6 @@ export default function ArtistPage() {
         .then((artistData) => {
           setArtist(artistData);
           setIsLoading(false);
-          console.log(artistData);
         })
         .catch((error) => {
           console.error('Error:', error);
