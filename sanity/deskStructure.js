@@ -42,19 +42,17 @@ export const myStructure = (S) =>
             .title('Pages')
             .items([
               S.listItem()
-                .title('Home')
+                .title('Studion')
                 .child(S.document().schemaType('home').documentId('home'))
                 .icon(PiHouseLineFill),
               S.listItem()
-                .title('Studio')
-                .child(S.document().schemaType('studio').documentId('studio'))
-                .icon(PiOfficeChairFill),
-              S.listItem()
-                .title('Tatuerare')
+                .title('Information')
                 .child(
-                  S.document().schemaType('tatuerare').documentId('tatuerare')
+                  S.document()
+                    .schemaType('information')
+                    .documentId('information')
                 )
-                .icon(BsPeopleFill),
+                .icon(PiOfficeChairFill),
               S.listItem()
                 .title('Lediga tider')
                 .child(
