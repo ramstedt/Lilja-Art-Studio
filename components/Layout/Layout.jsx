@@ -40,6 +40,15 @@ function Layout({ children }) {
         <meta name='keywords' content={metadata.keywords} />
         <meta name='robots' content='index, follow' />
       </Head>
+      <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-Y5682L7L29"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-Y5682L7L29');
+</script>
       <GlobalStyle />
       <Hero />
       <Navbar />
