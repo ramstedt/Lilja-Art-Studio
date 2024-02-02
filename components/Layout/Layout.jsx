@@ -15,30 +15,6 @@ function urlFor(source) {
   return builder.image(source);
 }
 
-const GoogleTag = () => {
-  useEffect(() => {
-    const script = document.createElement('script');
-    script.async = true;
-    script.src = 'https://www.googletagmanager.com/gtag/js?id=G-Y5682L7L29';
-    document.head.insertBefore(script, document.head.firstChild);
-
-    script.onload = () => {
-      window.dataLayer = window.dataLayer || [];
-      function gtag() {
-        window.dataLayer.push(arguments);
-      }
-      gtag('js', new Date());
-      gtag('config', 'G-Y5682L7L29');
-    };
-
-    return () => {
-      document.head.removeChild(script);
-    };
-  }, []);
-
-  return null;
-};
-
 function Layout({ children }) {
   const [metadata, setMetadata] = useState(null);
   const [isLoading, setLoading] = useState(true);
@@ -60,7 +36,6 @@ function Layout({ children }) {
   return (
     <Theme>
       <Head>
-        <GoogleTag />
         <link rel='canonical' href='https://lilja-art-studio.vercel.app' />
         <title>{metadata.title}</title>
         <link rel='icon' href={urlFor(metadata.favicon).url()} />
