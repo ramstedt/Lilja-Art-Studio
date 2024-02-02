@@ -3,7 +3,7 @@ nav {
   font-family: 'Oswald', Courier, monospace;
   position: absolute;
   top: 287px;
-  background: rgb(241, 241, 241);
+  background: #f6efef;
 }
 
 @media only screen and (min-width: 768px) {
@@ -102,7 +102,7 @@ ul {
   height: 30px;
 }
 
-@media screen and (max-width: 460px) {
+@media screen and (max-width: 320px) {
   nav {
     width: fit-content;
     background: transparent;
