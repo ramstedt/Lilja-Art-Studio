@@ -40,15 +40,32 @@ function Layout({ children }) {
         <meta name='keywords' content={metadata.keywords} />
         <meta name='robots' content='index, follow' />
       </Head>
-      <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-Y5682L7L29"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
+const GoogleTag = () => {
+  useEffect(() => {
+    const script = document.createElement('script');
+    script.async = true;
+    script.src = 'https://www.googletagmanager.com/gtag/js?id=G-Y5682L7L29';
+    document.head.appendChild(script);
 
-  gtag('config', 'G-Y5682L7L29');
-</script>
+    script.onload = () => {
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        window.dataLayer.push(arguments);
+      }
+      gtag('js', new Date());
+      gtag('config', 'G-Y5682L7L29');
+    };
+
+    return () => {
+      document.head.removeChild(script);
+    };
+  }, []);
+
+  return null;
+};
+
+export default GoogleTag;
+
       <GlobalStyle />
       <Hero />
       <Navbar />
