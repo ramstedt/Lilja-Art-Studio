@@ -49,7 +49,13 @@ export default function Home() {
         return client.fetch(`*[_type == "artists"]`);
       })
       .then((artistData) => {
-        setArtists(artistData);
+        const sortedArtists = [...artistData].sort((a, b) => {
+          const nameA = a.name.toLowerCase();
+          const nameB = b.name.toLowerCase();
+          return nameA.includes('karin') ? -1 : nameB.includes('karin') ? 1 : 0;
+        });
+
+        setArtists(sortedArtists);
         setIsLoading(false);
       })
       .catch((error) => {
