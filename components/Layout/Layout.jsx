@@ -8,6 +8,7 @@ import Head from 'next/head';
 import { client } from '@/sanity/lib/client';
 import { useState, useEffect } from 'react';
 import imageUrlBuilder from '@sanity/image-url';
+import { Analytics } from '@vercel/analytics/react';
 
 const builder = imageUrlBuilder(client);
 
@@ -43,11 +44,14 @@ function Layout({ children }) {
         <meta name='keywords' content={metadata.keywords} />
         <meta name='robots' content='index, follow' />
       </Head>
+      <body>
       <GlobalStyle />
       <Hero />
       <Navbar />
       <Content>{children}</Content>
       <Footer />
+      <Analytics />
+      </body>
     </Theme>
   );
 }
