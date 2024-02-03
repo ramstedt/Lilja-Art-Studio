@@ -10,6 +10,7 @@ import { useState, useEffect } from 'react';
 import imageUrlBuilder from '@sanity/image-url';
 
 const builder = imageUrlBuilder(client);
+
 function urlFor(source) {
   return builder.image(source);
 }
@@ -29,7 +30,9 @@ function Layout({ children }) {
         console.error('Error:', error);
       });
   }, []);
-  if (isLoading) return <div></div>;
+
+  if (isLoading || !metadata) return <div></div>;
+
   return (
     <Theme>
       <Head>

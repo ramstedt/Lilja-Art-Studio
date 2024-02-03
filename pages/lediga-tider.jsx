@@ -14,9 +14,6 @@ const ScheduleWrapper = styled.div`
     flex-wrap: wrap;
     gap: 7rem;
   }
-  /* div:nth-child(odd) {
-    background: ;
-  } */
 `;
 
 const Month = styled.div`
@@ -35,6 +32,7 @@ const Month = styled.div`
     align-self: left;
   }
 `;
+
 export default function Schedule() {
   const [schedule, setSchedule] = useState(null);
   const [isLoading, setLoading] = useState(true);
@@ -53,77 +51,39 @@ export default function Schedule() {
   }, []);
 
   if (isLoading) return <div></div>;
+
+  const months = [
+    { short: 'jan', full: 'Januari' },
+    { short: 'feb', full: 'Februari' },
+    { short: 'mar', full: 'Mars' },
+    { short: 'apr', full: 'April' },
+    { short: 'may', full: 'Maj' },
+    { short: 'jun', full: 'Juni' },
+    { short: 'jul', full: 'Juli' },
+    { short: 'aug', full: 'Augusti' },
+    { short: 'sep', full: 'September' },
+    { short: 'oct', full: 'Oktober' },
+    { short: 'nov', full: 'November' },
+    { short: 'dec', full: 'December' },
+  ];
+
+  const renderMonth = (month) => {
+    if (schedule[month.short] !== undefined) {
+      return (
+        <Month key={month.short}>
+          <h2>{month.full}</h2>
+          <BlockContent blocks={schedule[month.short]} />
+        </Month>
+      );
+    }
+    return null;
+  };
+
   return (
     <Layout>
       <h1>{schedule.title}</h1>
       <ScheduleWrapper>
-        {schedule.jan === undefined ? null : (
-          <Month>
-            <h2>Januari</h2>
-            <BlockContent blocks={schedule.jan} />
-          </Month>
-        )}
-        {schedule.feb === undefined ? null : (
-          <Month>
-            <h2>Februari</h2>
-            <BlockContent blocks={schedule.feb} />
-          </Month>
-        )}
-        {schedule.mar === undefined ? null : (
-          <Month>
-            <h2>Mars</h2>
-            <BlockContent blocks={schedule.mar} />
-          </Month>
-        )}
-        {schedule.apr === undefined ? null : (
-          <Month>
-            <h2>April</h2>
-            <BlockContent blocks={schedule.apr} />
-          </Month>
-        )}
-        {schedule.jun === undefined ? null : (
-          <Month>
-            <h2>Juni</h2>
-            <BlockContent blocks={schedule.jun} />
-          </Month>
-        )}
-        {schedule.jul === undefined ? null : (
-          <Month>
-            <h2>Juli</h2>
-            <BlockContent blocks={schedule.jul} />
-          </Month>
-        )}
-
-        {schedule.jul === undefined ? null : (
-          <Month>
-            <h2>Augusti</h2>
-            <BlockContent blocks={schedule.aug} />
-          </Month>
-        )}
-        {schedule.sep === undefined ? null : (
-          <Month>
-            <h2>September</h2>
-            <BlockContent blocks={schedule.sep} />
-          </Month>
-        )}
-        {schedule.oct === undefined ? null : (
-          <Month>
-            <h2>Oktober</h2>
-            <BlockContent blocks={schedule.oct} />
-          </Month>
-        )}
-        {schedule.nov === undefined ? null : (
-          <Month>
-            <h2>November</h2>
-            <BlockContent blocks={schedule.nov} />
-          </Month>
-        )}
-        {schedule.dec === undefined ? null : (
-          <Month>
-            <h2>December</h2>
-            <BlockContent blocks={schedule.dec} />
-          </Month>
-        )}
+        {months.map((month) => renderMonth(month))}
       </ScheduleWrapper>
     </Layout>
   );
