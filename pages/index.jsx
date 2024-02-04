@@ -64,6 +64,7 @@ export default function Home() {
       <div>
         <BlockContent blocks={artistPage && artistPage.body} />
       </div>
+      <h2>Tatuerare</h2>
       <ArtistWrapper>
         {artists &&
           artists.map((artist, key) => {

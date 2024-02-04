@@ -41,7 +41,10 @@ export default function ArtistCardSmall({ title, text, image, alt, slug }) {
         <p>{text}</p>
       </TextWrapper>
       <ButtonWrapper>
-        <CTAButton text='Portfolio' url={slug} />
+        <CTAButton
+          text={title.toLowerCase().includes('gäst') ? 'Läs mer' : 'Portfolio'}
+          url={slug}
+        />
       </ButtonWrapper>
     </Wrapper>
   );
