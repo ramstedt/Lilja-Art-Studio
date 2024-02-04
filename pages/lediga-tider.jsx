@@ -13,6 +13,7 @@ const ScheduleWrapper = styled.div`
     flex-direction: row;
     flex-wrap: wrap;
     gap: 7rem;
+    background: ${(props) => props.theme.secondaryBackgroundColor.value};
   }
 `;
 
@@ -32,6 +33,8 @@ const Month = styled.div`
     align-self: left;
   }
 `;
+
+const Text = styled.div``;
 
 export default function Schedule() {
   const [schedule, setSchedule] = useState(null);
@@ -82,6 +85,9 @@ export default function Schedule() {
   return (
     <Layout>
       <h1>{schedule.title}</h1>
+      <Text>
+        <BlockContent blocks={schedule.text} />
+      </Text>
       <ScheduleWrapper>
         {months.map((month) => renderMonth(month))}
       </ScheduleWrapper>

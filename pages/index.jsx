@@ -52,7 +52,16 @@ export default function Home() {
         const sortedArtists = [...artistData].sort((a, b) => {
           const nameA = a.name.toLowerCase();
           const nameB = b.name.toLowerCase();
-          return nameA.includes('karin') ? -1 : nameB.includes('karin') ? 1 : 0;
+
+          return nameA.includes('karin')
+            ? -1
+            : nameB.includes('karin')
+            ? 1
+            : nameA.includes('gästartist')
+            ? 1
+            : nameB.includes('gästartist')
+            ? -1
+            : 0;
         });
 
         setArtists(sortedArtists);

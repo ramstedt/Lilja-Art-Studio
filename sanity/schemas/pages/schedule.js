@@ -9,6 +9,11 @@ export const schedule = {
       type: 'string',
     },
     {
+      name: 'text',
+      title: 'Brödtext',
+      type: 'blockContent',
+    },
+    {
       name: 'jan',
       title: 'Januari',
       type: 'blockContentNoImage',
