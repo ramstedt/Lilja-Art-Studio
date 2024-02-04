@@ -37,7 +37,6 @@ export default function ArtistCardSmall({ title, text, image, alt, slug }) {
         />
       </ImageWrapper>
       <TextWrapper>
-        {console.log(text)}
         <h3>{title}</h3>
         <p>{text === undefined || text.length <= 1 ? <br /> : text}</p>
       </TextWrapper>
