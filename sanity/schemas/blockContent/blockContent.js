@@ -31,6 +31,11 @@ export const blockContent = {
                 name: 'href',
                 type: 'url',
               },
+              {
+                title: 'Open in a New Tab',
+                name: 'blank',
+                type: 'boolean',
+              },
             ],
           },
         ],

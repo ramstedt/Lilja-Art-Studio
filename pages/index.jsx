@@ -4,7 +4,6 @@ import Instagram from '@/components/Instagram/Instagram';
 import { useState, useEffect } from 'react';
 import { client } from '@/sanity/lib/client';
 import imageUrlBuilder from '@sanity/image-url';
-import TextblockImage from '@/components/TextblockImage/TextblockImage';
 import ArtistCardSmall from '@/components/ArtistCardSmall/ArtistCardSmall';
 import BlockContent from '@sanity/block-content-to-react';
 
@@ -22,23 +21,9 @@ function urlFor(source) {
 }
 
 export default function Home() {
-  const [home, setHome] = useState(null);
   const [artistPage, setArtistPage] = useState(null);
   const [artists, setArtists] = useState(null);
   const [loading, setIsLoading] = useState(true);
-
-  // useEffect(() => {
-  //   seHomeIstLoading(true);
-  //   client
-  //     .fetch(`*[_type == "home"]`)
-  //     .then((homeData) => {
-  //       setHome(homeData[0]);
-  //       seHomeIstLoading(false);
-  //     })
-  //     .catch((error) => {
-  //       console.error('Error:', error);
-  //     });
-  // }, []);
 
   useEffect(() => {
     setIsLoading(true);

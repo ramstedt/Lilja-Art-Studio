@@ -72,10 +72,18 @@ export default function Schedule() {
 
   const renderMonth = (month) => {
     if (schedule[month.short] !== undefined) {
+      const monthContent = schedule[month.short];
+      if (Array.isArray(monthContent) && monthContent.length === 1) {
+        const firstObject = monthContent[0].children;
+        if (firstObject.length <= 1) {
+          return null;
+        }
+      }
+
       return (
         <Month key={month.short}>
           <h2>{month.full}</h2>
-          <BlockContent blocks={schedule[month.short]} />
+          <BlockContent blocks={monthContent} />
         </Month>
       );
     }
@@ -85,6 +93,7 @@ export default function Schedule() {
   return (
     <Layout>
       <h1>{schedule.title}</h1>
+
       <Text>
         <BlockContent blocks={schedule.text} />
       </Text>

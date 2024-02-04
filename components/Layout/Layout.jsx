@@ -44,14 +44,12 @@ function Layout({ children }) {
         <meta name='keywords' content={metadata.keywords} />
         <meta name='robots' content='index, follow' />
       </Head>
-      <body>
       <GlobalStyle />
       <Hero />
       <Navbar />
       <Content>{children}</Content>
       <Footer />
       <Analytics />
-      </body>
     </Theme>
   );
 }
