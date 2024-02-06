@@ -18,9 +18,9 @@ const Wrapper = styled.div`
   flex-direction: column;
   gap: 1.5rem;
   width: 100%;
-  @media only screen and (min-width: 768px) {
+  @media only screen and (min-width: 1024px) {
     flex-direction: row;
-    flex-wrap: wrap;
+    align-items: flex-start;
   }
 `;
 const About = styled.div`
@@ -64,6 +64,7 @@ const ImageWrapper = styled.div`
 const TextWrapper = styled.div`
   @media only screen and (min-width: 768px) {
     grid-area: 2 / 2 / 3 / 3;
+    min-width: 300px;
   }
 `;
 
@@ -215,7 +216,10 @@ export default function ArtistCard({
         <TextWrapper>{description}</TextWrapper>
       </About>
       <Contact>
-        <h2>Kontaktinformation</h2>
+        {email || phone || facebook || instagram ? (
+          <h2>Kontaktinformation</h2>
+        ) : null}
+
         {email ? (
           <div>
             <b>Email:</b> {email}
@@ -250,7 +254,7 @@ export default function ArtistCard({
         ) : null}
       </Contact>
       <GalleryWrapper>
-        <h2>Galleri</h2>
+        {gallery === undefined || gallery.length > 0 ? null : <h2>Galleri</h2>}
         <Gallery>
           {gallery &&
             gallery.map((image, key) => (
