@@ -4,6 +4,12 @@ export const footer = {
   type: 'document',
   fields: [
     {
+      name: 'title',
+      title: 'Title',
+      type: 'string',
+      hidden: true,
+    },
+    {
       name: 'contact',
       title: 'Kontakt',
       type: 'blockContentPlain',

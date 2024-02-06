@@ -4,6 +4,12 @@ export const theme = {
   type: 'document',
   fields: [
     {
+      name: 'title',
+      title: 'Title',
+      type: 'string',
+      hidden: true,
+    },
+    {
       name: 'backgroundColor',
       title: 'Background Color',
       type: 'simplerColor',

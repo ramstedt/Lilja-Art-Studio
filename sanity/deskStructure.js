@@ -1,7 +1,7 @@
 import { FaCog, FaCode } from 'react-icons/fa';
 import { RiLayoutBottom2Fill, RiLayoutTop2Fill } from 'react-icons/ri';
 import { IoColorPaletteSharp } from 'react-icons/io5';
-import { BsPeopleFill, BsPersonFill } from 'react-icons/bs';
+import { BsPersonFill } from 'react-icons/bs';
 import { PiHouseLineFill, PiOfficeChairFill } from 'react-icons/pi';
 import { GrSchedule } from 'react-icons/gr';
 
