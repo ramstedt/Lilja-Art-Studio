@@ -21,6 +21,7 @@ const Wrapper = styled.div`
   @media only screen and (min-width: 1024px) {
     flex-direction: row;
     align-items: flex-start;
+    flex-wrap: wrap;
   }
 `;
 const About = styled.div`
