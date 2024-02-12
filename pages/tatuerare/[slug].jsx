@@ -25,15 +25,19 @@ export default function ArtistPage() {
       client
         .fetch(query, { slug: slug })
         .then((artistData) => {
-          setArtist(artistData);
-          setIsLoading(false);
+          if (!artistData) {
+            router.replace('/404');
+          } else {
+            setArtist(artistData);
+            setIsLoading(false);
+          }
         })
         .catch((error) => {
           console.error('Error:', error);
           setIsLoading(false);
         });
     }
-  }, [slug]);
+  }, [slug, router]);
 
   if (isLoading) return <div></div>;
   return (
