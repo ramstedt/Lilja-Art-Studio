@@ -39,7 +39,7 @@ function Layout({ children }) {
       <Head>
         <title>{metadata.title}</title>
         <link rel='icon' href={urlFor(metadata.favicon).url()} />
-        <meta name='description' content={metadata.description} />
+        <meta name='description' content="Våra skickliga tatuerare hjälper dig med din tatuering. Fokus på botanik, väsen, djur med mera. HBTQI vänliiga, veganska tatueringar. Kika på våra portfolion! Medlem i Sveriges registrerade tatuerare SRT." />
         <meta name='keywords' content={metadata.keywords} />
         <meta name='robots' content='index, follow' />
       </Head>
