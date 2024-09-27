@@ -140,7 +140,7 @@ const ModalWrapper = styled.div`
   gap: 0.5rem;
   position: relative;
   z-index: 999;
-  h2 {
+  h4 {
     margin: 0 0 0.2rem 0;
     padding: 0;
   }
@@ -197,11 +197,11 @@ const EventModal = ({ isOpen, onRequestClose, events = [] }) => {
       contentLabel="Event information"
     >
       <ModalWrapper>
-        <h2>
+        <h4>
           {events.length > 0
             ? capitalizeFirstLetter(formattedDate)
             : "Inga händelser tillgängliga"}
-        </h2>
+        </h4>
         {events.length > 0 ? (
           <>
             {events.map((event) => (
@@ -209,10 +209,13 @@ const EventModal = ({ isOpen, onRequestClose, events = [] }) => {
                 <h3>{event.summary}</h3>
                 <p>
                   {event.start.dateTime
-                    ? new Date(event.start.dateTime).toLocaleTimeString([], {
-                        hour: "2-digit",
-                        minute: "2-digit",
-                      })
+                    ? `Tid: ${new Date(event.start.dateTime).toLocaleTimeString(
+                        [],
+                        {
+                          hour: "2-digit",
+                          minute: "2-digit",
+                        }
+                      )}`
                     : "Hela dagen"}{" "}
                 </p>
                 {event.description && <p>{event.description}</p>}
