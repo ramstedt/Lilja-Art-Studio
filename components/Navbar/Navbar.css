@@ -1,6 +1,6 @@
 nav {
   width: 100%;
-  font-family: 'Oswald', Courier, monospace;
+  font-family: "Oswald", Courier, monospace;
   position: absolute;
   top: 287px;
   background: #f6efef;
@@ -46,15 +46,15 @@ nav .wrapper {
   transition: all 0.3s ease;
 }
 .desktop-item:hover,
-.nav-links li a:hover {
-  background: #ffffff9e;
+.nav-links li:hover {
+  text-decoration: underline;
 }
 .nav-links .mobile-item {
   display: none;
 }
 .nav-links .drop-menu {
   position: absolute;
-  z-index: 9999;
+  z-index: 999;
   background: #fff;
   width: 210px;
   line-height: 45px;
@@ -127,7 +127,7 @@ ul {
     position: fixed;
     height: 100vh;
     width: 100%;
-    z-index: 9999;
+    z-index: 999;
     top: 0;
     left: -120%;
     background: #fff;
