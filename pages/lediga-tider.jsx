@@ -219,13 +219,15 @@ const EventModal = ({ isOpen, onRequestClose, events = [] }) => {
               </div>
             ))}
             <div>
-              Alla tider bookas via meddelande på{" "}
-              <Link
-                href="https://www.instagram.com/liljaart_tattoo/"
-                target="_blank"
-              >
-                Instagram <FiExternalLink />
-              </Link>
+              <small>
+                Alla tider bokas via meddelande på{" "}
+                <Link
+                  href="https://www.instagram.com/liljaart_tattoo/"
+                  target="_blank"
+                >
+                  Instagram <FiExternalLink />
+                </Link>
+              </small>
             </div>
           </>
         ) : (
