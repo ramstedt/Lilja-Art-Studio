@@ -9,25 +9,37 @@ import ArtistCardSmall from "@/components/ArtistCardSmall/ArtistCardSmall";
 import BlockContent from "@sanity/block-content-to-react";
 import { Element } from "react-scroll";
 import { useRouter } from "next/router";
+
 const ArtistWrapper = styled.div`
   display: flex;
   gap: 1rem;
-  flex-wrap: wrap;
   justify-content: center;
   justify-content: space-evenly;
+  flex-direction: column;
+  margin: auto;
+  @media only screen and (min-width: 768px) {
+    margin: initial;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    justify-items: center;
+  }
 `;
 
 const PricesWrapper = styled.div`
   margin: auto;
   max-width: 768px;
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
   gap: 1rem;
   margin-top: 1rem;
   margin-bottom: 1rem;
   padding: 1rem;
   border: 1px solid black;
   font-size: 1.3rem;
+  display: flex;
+  flex-direction: column;
+  @media only screen and (min-width: 768px) {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  }
 `;
 
 const builder = imageUrlBuilder(client);
