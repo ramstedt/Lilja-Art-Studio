@@ -1,14 +1,14 @@
-import Theme from '@/components/Theme/Theme';
-import Footer from '@/components/Footer/Footer';
-import GlobalStyle from '@/styles/globals';
-import Hero from '@/components/Hero/Hero';
-import Navbar from '../Navbar/Navbar';
-import Content from '../Content/Content';
-import Head from 'next/head';
-import { client } from '@/sanity/lib/client';
-import { useState, useEffect } from 'react';
-import imageUrlBuilder from '@sanity/image-url';
-import { Analytics } from '@vercel/analytics/react';
+import Theme from "@/components/Theme/Theme";
+import Footer from "@/components/Footer/Footer";
+import GlobalStyle from "@/styles/globals";
+import Hero from "@/components/Hero/Hero";
+import Navbar from "../Navbar/Navbar";
+import Content from "../Content/Content";
+import Head from "next/head";
+import { client } from "@/sanity/lib/client";
+import { useState, useEffect } from "react";
+import imageUrlBuilder from "@sanity/image-url";
+import { Analytics } from "@vercel/analytics/react";
 
 const builder = imageUrlBuilder(client);
 
@@ -28,7 +28,7 @@ function Layout({ children }) {
         setLoading(false);
       })
       .catch((error) => {
-        console.error('Error:', error);
+        console.error("Error:", error);
       });
   }, []);
 
@@ -38,9 +38,12 @@ function Layout({ children }) {
     <Theme>
       <Head>
         <title>{metadata.title}</title>
-        <link rel='icon' href={urlFor(metadata.favicon).url()} />
-        <meta name='description' content="Våra skickliga tatuerare hjälper dig med din tatuering. Fokus på botanik, väsen, djur med mera. HBTQI vänliiga, veganska tatueringar. Kika på våra portfolion! Medlem i Sveriges registrerade tatuerare SRT." />
-        <meta name='robots' content='index, follow' />
+        <link rel="icon" href={urlFor(metadata.favicon).url()} />
+        <meta
+          name="description"
+          content="Våra skickliga tatuerare hjälper dig med din tatuering. Fokus på botanik, väsen, djur med mera. HBTQI vänliiga, veganska tatueringar. Kika på våra portfolion! Medlem i Sveriges registrerade tatuerare SRT."
+        />
+        <meta name="robots" content="index, follow" />
       </Head>
       <GlobalStyle />
       <Hero />

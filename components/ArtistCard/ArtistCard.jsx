@@ -1,12 +1,12 @@
-import styled from 'styled-components';
-import Image from 'next/image';
-import { IoLogoInstagram } from 'react-icons/io';
-import { IoLogoFacebook } from 'react-icons/io';
-import imageUrlBuilder from '@sanity/image-url';
-import { client } from '@/sanity/lib/client';
-import Modal from 'react-modal';
-import { useState } from 'react';
-import Link from 'next/link';
+import styled from "styled-components";
+import Image from "next/image";
+import { IoLogoInstagram } from "react-icons/io";
+import { IoLogoFacebook } from "react-icons/io";
+import imageUrlBuilder from "@sanity/image-url";
+import { client } from "@/sanity/lib/client";
+import Modal from "react-modal";
+import { useState } from "react";
+import Link from "next/link";
 
 const builder = imageUrlBuilder(client);
 function urlFor(source) {
@@ -33,7 +33,7 @@ const About = styled.div`
   flex-wrap: wrap;
   @media only screen and (min-width: 768px) {
     display: grid;
-    grid-template-columns: 0.8fr 1fr;
+    grid-template-columns: auto 1fr;
     grid-template-rows: 0.1fr 1fr;
     grid-column-gap: 1rem;
     grid-row-gap: 0px;
@@ -41,6 +41,9 @@ const About = styled.div`
   }
   @media only screen and (min-width: 800px) {
     width: 720px;
+  }
+  @media only screen and (min-width: 1440px) {
+    width: 999px;
   }
 `;
 
@@ -55,8 +58,13 @@ const ImageWrapper = styled.div`
   }
 
   @media only screen and (min-width: 768px) {
-    width: 400px;
-    height: 500px;
+    margin: 0;
+    grid-area: 2 / 1 / 3 / 2;
+  }
+
+  @media only screen and (min-width: 1024px) {
+    width: 350px;
+    height: 450px;
     margin: 0;
     grid-area: 2 / 1 / 3 / 2;
   }
@@ -76,12 +84,6 @@ const Contact = styled.div`
   }
   @media only screen and (min-width: 1024px) {
     width: 20%;
-  }
-  @media only screen and (min-width: 1200px) {
-    width: 25%;
-  }
-  @media only screen and (min-width: 1441px) {
-    width: 30%;
   }
 `;
 
@@ -134,9 +136,9 @@ const SocialMedia = styled.div`
 
 const customStyles = {
   content: {
-    position: 'absolute',
-    zIndex: '999',
-    cursor: 'pointer',
+    position: "absolute",
+    zIndex: "999",
+    cursor: "pointer",
   },
 };
 
@@ -162,8 +164,8 @@ function GalleryModal({ image }) {
           src={urlFor(image.image).url()}
           alt={image.alt}
           fill
-          style={{ objectFit: 'cover' }}
-          sizes='(max-width: 300px)'
+          style={{ objectFit: "cover" }}
+          sizes="(max-width: 300px)"
           onClick={openModal}
         />
       </GalleryCard>
@@ -178,8 +180,8 @@ function GalleryModal({ image }) {
           src={urlFor(image.image).url()}
           alt={image.alt}
           fill
-          style={{ objectFit: 'none' }}
-          sizes='(max-width: 80vw)'
+          style={{ objectFit: "none" }}
+          sizes="(max-width: 80vw)"
           onClick={closeModal}
         />
       </Modal>
@@ -207,10 +209,10 @@ export default function ArtistCard({
         <ImageWrapper>
           <Image
             src={portrait}
-            sizes='(max-width: 300px)'
-            alt='alt text'
+            sizes="(max-width: 300px)"
+            alt="alt text"
             fill
-            style={{ objectFit: 'cover' }}
+            style={{ objectFit: "cover" }}
             priority={true}
           />
         </ImageWrapper>
@@ -234,14 +236,14 @@ export default function ArtistCard({
         <SocialMedia>
           <div>
             {facebook ? (
-              <Link href={facebook} target='_blank'>
+              <Link href={facebook} target="_blank">
                 <IoLogoFacebook />
               </Link>
             ) : null}
           </div>
           <div>
             {instagram ? (
-              <Link href={instagram} target='_blank'>
+              <Link href={instagram} target="_blank">
                 <IoLogoInstagram />
               </Link>
             ) : null}
