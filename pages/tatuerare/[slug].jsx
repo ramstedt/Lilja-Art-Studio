@@ -42,8 +42,6 @@ export default function ArtistPage() {
   if (isLoading) return <div></div>;
   return (
     <>
-      <br />
-      <br />
       <ArtistCard
         portrait={urlFor(artist.portrait).url()}
         name={artist.name}
