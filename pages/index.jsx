@@ -1,5 +1,3 @@
-// src/pages/index.jsx
-import Layout from "@/components/Layout/Layout";
 import styled from "styled-components";
 import Instagram from "@/components/Instagram/Instagram";
 import { useState, useEffect } from "react";
@@ -7,8 +5,6 @@ import { client } from "@/sanity/lib/client";
 import imageUrlBuilder from "@sanity/image-url";
 import ArtistCardSmall from "@/components/ArtistCardSmall/ArtistCardSmall";
 import BlockContent from "@sanity/block-content-to-react";
-import { Element } from "react-scroll";
-import { useRouter } from "next/router";
 
 const ArtistWrapper = styled.div`
   display: flex;
@@ -51,20 +47,6 @@ export default function Home() {
   const [studioData, setStudioData] = useState(null);
   const [artists, setArtists] = useState(null);
   const [loading, setIsLoading] = useState(true);
-  const router = useRouter();
-  const [heroLoaded, setHeroLoaded] = useState(false);
-
-  useEffect(() => {
-    if (!loading && heroLoaded && router.asPath.includes("#priser")) {
-      const section = document.getElementById("priser");
-      if (section) {
-        // Ensure the DOM is fully rendered before scrolling
-        requestAnimationFrame(() => {
-          section.scrollIntoView({ behavior: "smooth" });
-        });
-      }
-    }
-  }, [loading, heroLoaded, router.asPath]);
 
   useEffect(() => {
     setIsLoading(true);
@@ -98,7 +80,7 @@ export default function Home() {
   }, []);
 
   return (
-    <Layout setHeroLoaded={setHeroLoaded}>
+    <>
       <h1>{studioData && studioData.title}</h1>
       <div>
         <BlockContent blocks={studioData && studioData.body} />
@@ -119,26 +101,24 @@ export default function Home() {
             );
           })}
       </ArtistWrapper>
-      <Element name="priser">
-        <h2 id="priser">Priser</h2>
-        <BlockContent blocks={studioData && studioData.pricesTextAbove} />
-        {studioData && studioData.prices.rows.length > 0 ? (
-          <PricesWrapper>
-            {studioData.prices.rows.map((row) => (
-              <div key={row._key}>
-                <div>{row.cells[0]}</div>
-                <div>{row.cells[1]}</div>
-              </div>
-            ))}
-          </PricesWrapper>
-        ) : null}
-        <BlockContent blocks={studioData && studioData.pricesTextBelow} />
-      </Element>
+      <h2 id="priser">Priser</h2>
+      <BlockContent blocks={studioData && studioData.pricesTextAbove} />
+      {studioData && studioData.prices.rows.length > 0 ? (
+        <PricesWrapper>
+          {studioData.prices.rows.map((row) => (
+            <div key={row._key}>
+              <div>{row.cells[0]}</div>
+              <div>{row.cells[1]}</div>
+            </div>
+          ))}
+        </PricesWrapper>
+      ) : null}
+      <BlockContent blocks={studioData && studioData.pricesTextBelow} />
       <div>
         <h2>Det senaste från Instagram</h2>
         Kommer snart
         {/* <Instagram /> */}
       </div>
-    </Layout>
+    </>
   );
 }

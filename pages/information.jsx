@@ -1,9 +1,9 @@
-import Layout from '@/components/Layout/Layout';
-import { useState, useEffect } from 'react';
-import { client } from '@/sanity/lib/client';
-import imageUrlBuilder from '@sanity/image-url';
-import SanityBlockContent from '@sanity/block-content-to-react';
-import styled from 'styled-components';
+import Layout from "@/components/Layout/Layout";
+import { useState, useEffect } from "react";
+import { client } from "@/sanity/lib/client";
+import imageUrlBuilder from "@sanity/image-url";
+import SanityBlockContent from "@sanity/block-content-to-react";
+import styled from "styled-components";
 
 const InformationWrapper = styled.div`
   display: flex;
@@ -43,13 +43,13 @@ export default function Information() {
         setLoading(false);
       })
       .catch((error) => {
-        console.error('Error:', error);
+        console.error("Error:", error);
       });
   }, []);
 
   if (isLoading) return <div></div>;
   return (
-    <Layout>
+    <>
       <h1>{information && information.title}</h1>
       <InformationWrapper>
         <SanityBlockContent
@@ -63,6 +63,6 @@ export default function Information() {
           dataset={process.env.NEXT_PUBLIC_SANITY_DATASET}
         />
       </InformationWrapper>
-    </Layout>
+    </>
   );
 }

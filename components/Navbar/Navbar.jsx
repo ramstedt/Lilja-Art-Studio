@@ -2,7 +2,6 @@ import Link from "next/link";
 import styled from "styled-components";
 import { IoClose } from "react-icons/io5";
 import { HiMenuAlt3 } from "react-icons/hi";
-import { Link as ScrollLink } from "react-scroll";
 
 const Icon = styled.i`
   color: ${(props) => props.theme.primary.fontColor.value};

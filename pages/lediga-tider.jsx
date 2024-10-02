@@ -292,7 +292,7 @@ export default function CalendarPage({ events }) {
   };
   if (isLoading) return <div></div>;
   return (
-    <Layout>
+    <>
       <h1>{schedule.title}</h1>
       <Text>
         <BlockContent blocks={schedule.text} />
@@ -316,7 +316,7 @@ export default function CalendarPage({ events }) {
           />
         )}
       </Container>
-    </Layout>
+    </>
   );
 }
 
