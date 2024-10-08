@@ -21,5 +21,20 @@ export const information = {
       type: 'blockContent',
       validation: (Rule) => Rule.required(),
     },
+    {
+      name: 'pricesTextAbove',
+      title: 'Text ovanför Prislistan',
+      type: 'blockContentNoImage',
+    },
+    {
+      name: 'prices',
+      title: 'Prislista',
+      type: 'table',
+    },
+    {
+      name: 'pricesTextBelow',
+      title: 'Text nedanför Prislistan',
+      type: 'blockContentNoImage',
+    },
   ],
 };

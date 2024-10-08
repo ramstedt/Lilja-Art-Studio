@@ -4,6 +4,7 @@ import { IoColorPaletteSharp } from 'react-icons/io5';
 import { BsPersonFill } from 'react-icons/bs';
 import { PiHouseLineFill, PiOfficeChairFill } from 'react-icons/pi';
 import { GrSchedule } from 'react-icons/gr';
+import { IoMdSchool } from 'react-icons/io';
 
 export const myStructure = (S) =>
   S.list()
@@ -17,14 +18,6 @@ export const myStructure = (S) =>
             .title('Config')
             .items([
               S.listItem()
-                .title('Metadata')
-                .icon(FaCode)
-                .child(S.document().schemaType('meta').documentId('meta')),
-              S.listItem()
-                .title('Theme')
-                .icon(IoColorPaletteSharp)
-                .child(S.document().schemaType('theme').documentId('theme')),
-              S.listItem()
                 .title('Hero')
                 .icon(RiLayoutTop2Fill)
                 .child(S.document().schemaType('hero').documentId('hero')),
@@ -34,6 +27,7 @@ export const myStructure = (S) =>
                 .child(S.document().schemaType('footer').documentId('footer')),
             ])
         ),
+      S.documentTypeListItem('course').title('Lägg till kurs').icon(IoMdSchool),
       S.documentTypeListItem('artists').title('Artists').icon(BsPersonFill),
       S.listItem()
         .title('Pages')

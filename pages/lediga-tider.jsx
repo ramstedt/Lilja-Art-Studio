@@ -1,14 +1,14 @@
-import { useState, useEffect } from "react";
-import BlockContent from "@sanity/block-content-to-react";
-import { client } from "@/sanity/lib/client";
-import { getCalendarEvents } from "../lib/googleCalendar";
-import Calendar from "react-calendar";
-import styled from "styled-components";
-import "react-calendar/dist/Calendar.css";
-import Layout from "@/components/Layout/Layout";
-import Modal from "react-modal";
-import Link from "next/link";
-import { FiExternalLink } from "react-icons/fi";
+import { useState, useEffect } from 'react';
+import BlockContent from '@sanity/block-content-to-react';
+import { client } from '@/sanity/lib/client';
+import { getCalendarEvents } from '../lib/googleCalendar';
+import Calendar from 'react-calendar';
+import styled from 'styled-components';
+import 'react-calendar/dist/Calendar.css';
+import Layout from '@/components/Layout/Layout';
+import Modal from 'react-modal';
+import Link from 'next/link';
+import { FiExternalLink } from 'react-icons/fi';
 
 const Container = styled.div`
   display: flex;
@@ -29,7 +29,7 @@ const StyledCalendar = styled(Calendar)`
   //border-radius: 8px;
   margin-bottom: 2rem;
   width: 100%;
-  font-family: "Source Sans 3";
+  font-family: 'Source Sans 3';
 
   .react-calendar__navigation__prev2-button {
     display: none;
@@ -149,17 +149,17 @@ const Text = styled.div``;
 
 const modalStyles = {
   content: {
-    top: "50%",
-    left: "50%",
-    right: "auto",
-    bottom: "auto",
-    transform: "translate(-50%, -50%)",
-    width: "90%",
-    maxWidth: "600px",
-    padding: "20px",
+    top: '50%',
+    left: '50%',
+    right: 'auto',
+    bottom: 'auto',
+    transform: 'translate(-50%, -50%)',
+    width: '90%',
+    maxWidth: '600px',
+    padding: '20px',
   },
 };
-Modal.setAppElement("#__next");
+Modal.setAppElement('#__next');
 
 const capitalizeFirstLetter = (string) => {
   return string.charAt(0).toUpperCase() + string.slice(1);
@@ -168,10 +168,10 @@ const capitalizeFirstLetter = (string) => {
 const formatDateWithOrdinal = (date) => {
   const d = new Date(date);
   const day = d.getDate();
-  const month = d.toLocaleDateString("sv-SE", { month: "long" });
+  const month = d.toLocaleDateString('sv-SE', { month: 'long' });
   const year = d.getFullYear();
 
-  const ordinalSuffix = day === 1 ? "a" : "e";
+  const ordinalSuffix = day === 1 ? 'a' : 'e';
 
   return `${day}:${ordinalSuffix} ${month} ${year}`;
 };
@@ -183,23 +183,23 @@ const EventModal = ({ isOpen, onRequestClose, events = [] }) => {
       : null;
 
   const formattedDate = eventDate
-    ? `${eventDate.toLocaleDateString("sv-SE", {
-        weekday: "long",
+    ? `${eventDate.toLocaleDateString('sv-SE', {
+        weekday: 'long',
       })} ${formatDateWithOrdinal(eventDate)}`
-    : "Inga händelser tillgängliga";
+    : 'Inga händelser tillgängliga';
 
   return (
     <Modal
       isOpen={isOpen}
       onRequestClose={onRequestClose}
       style={modalStyles}
-      contentLabel="Event information"
+      contentLabel='Event information'
     >
       <ModalWrapper>
         <h4>
           {events.length > 0
             ? capitalizeFirstLetter(formattedDate)
-            : "Inga händelser tillgängliga"}
+            : 'Inga händelser tillgängliga'}
         </h4>
         {events.length > 0 ? (
           <>
@@ -211,21 +211,21 @@ const EventModal = ({ isOpen, onRequestClose, events = [] }) => {
                     ? `Tid: ${new Date(event.start.dateTime).toLocaleTimeString(
                         [],
                         {
-                          hour: "2-digit",
-                          minute: "2-digit",
+                          hour: '2-digit',
+                          minute: '2-digit',
                         }
                       )}`
-                    : "Hela dagen"}{" "}
+                    : 'Hela dagen'}{' '}
                 </p>
                 {event.description && <p>{event.description}</p>}
               </div>
             ))}
             <div>
               <small>
-                Alla tider bokas via meddelande på{" "}
+                Alla tider bokas via meddelande på{' '}
                 <Link
-                  href="https://www.instagram.com/liljaart_tattoo/"
-                  target="_blank"
+                  href='https://www.instagram.com/liljaart_tattoo/'
+                  target='_blank'
                 >
                   Instagram <FiExternalLink />
                 </Link>
@@ -257,7 +257,7 @@ export default function CalendarPage({ events }) {
         setLoading(false);
       })
       .catch((error) => {
-        console.error("Error:", error);
+        console.error('Error:', error);
       });
   }, []);
 
@@ -292,7 +292,7 @@ export default function CalendarPage({ events }) {
   };
   if (isLoading) return <div></div>;
   return (
-    <>
+    <Layout>
       <h1>{schedule.title}</h1>
       <Text>
         <BlockContent blocks={schedule.text} />
@@ -300,11 +300,11 @@ export default function CalendarPage({ events }) {
 
       <Container>
         <StyledCalendar
-          locale="sv-SE"
+          locale='sv-SE'
           value={selectedDate}
           onClickDay={(date) => setSelectedDate(date)}
           tileContent={({ date, view }) =>
-            view === "month" ? getEventContentForTile(date) : null
+            view === 'month' ? getEventContentForTile(date) : null
           }
         />
 
@@ -316,7 +316,7 @@ export default function CalendarPage({ events }) {
           />
         )}
       </Container>
-    </>
+    </Layout>
   );
 }
 

@@ -1,10 +1,11 @@
-import styled from "styled-components";
-import Instagram from "@/components/Instagram/Instagram";
-import { useState, useEffect } from "react";
-import { client } from "@/sanity/lib/client";
-import imageUrlBuilder from "@sanity/image-url";
-import ArtistCardSmall from "@/components/ArtistCardSmall/ArtistCardSmall";
-import BlockContent from "@sanity/block-content-to-react";
+import styled from 'styled-components';
+import Instagram from '@/components/Instagram/Instagram';
+import { useState, useEffect } from 'react';
+import { client } from '@/sanity/lib/client';
+import imageUrlBuilder from '@sanity/image-url';
+import ArtistCardSmall from '@/components/ArtistCardSmall/ArtistCardSmall';
+import BlockContent from '@sanity/block-content-to-react';
+import Layout from '@/components/Layout/Layout';
 
 const ArtistWrapper = styled.div`
   display: flex;
@@ -60,13 +61,13 @@ export default function Home() {
         const sortedArtists = [...artistData].sort((a, b) => {
           const nameA = a.name.toLowerCase();
           const nameB = b.name.toLowerCase();
-          return nameA.includes("karin")
+          return nameA.includes('karin')
             ? -1
-            : nameB.includes("karin")
+            : nameB.includes('karin')
             ? 1
-            : nameA.includes("gästartist")
+            : nameA.includes('gästartist')
             ? 1
-            : nameB.includes("gästartist")
+            : nameB.includes('gästartist')
             ? -1
             : 0;
         });
@@ -75,12 +76,12 @@ export default function Home() {
         setIsLoading(false);
       })
       .catch((error) => {
-        console.error("Error:", error);
+        console.error('Error:', error);
       });
   }, []);
 
   return (
-    <>
+    <Layout>
       <h1>{studioData && studioData.title}</h1>
       <div>
         <BlockContent blocks={studioData && studioData.body} />
@@ -101,24 +102,11 @@ export default function Home() {
             );
           })}
       </ArtistWrapper>
-      <h2 id="priser">Priser</h2>
-      <BlockContent blocks={studioData && studioData.pricesTextAbove} />
-      {studioData && studioData.prices.rows.length > 0 ? (
-        <PricesWrapper>
-          {studioData.prices.rows.map((row) => (
-            <div key={row._key}>
-              <div>{row.cells[0]}</div>
-              <div>{row.cells[1]}</div>
-            </div>
-          ))}
-        </PricesWrapper>
-      ) : null}
-      <BlockContent blocks={studioData && studioData.pricesTextBelow} />
       <div>
         <h2>Det senaste från Instagram</h2>
         Kommer snart
         {/* <Instagram /> */}
       </div>
-    </>
+    </Layout>
   );
 }

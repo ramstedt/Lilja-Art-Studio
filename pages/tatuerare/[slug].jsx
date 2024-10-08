@@ -1,10 +1,10 @@
-import { useRouter } from "next/router";
-import { client } from "@/sanity/lib/client";
-import { useState, useEffect } from "react";
-import Layout from "@/components/Layout/Layout";
-import ArtistCard from "@/components/ArtistCard/ArtistCard";
-import BlockContent from "@sanity/block-content-to-react";
-import imageUrlBuilder from "@sanity/image-url";
+import { useRouter } from 'next/router';
+import { client } from '@/sanity/lib/client';
+import { useState, useEffect } from 'react';
+import Layout from '@/components/Layout/Layout';
+import ArtistCard from '@/components/ArtistCard/ArtistCard';
+import BlockContent from '@sanity/block-content-to-react';
+import imageUrlBuilder from '@sanity/image-url';
 
 const builder = imageUrlBuilder(client);
 function urlFor(source) {
@@ -26,14 +26,14 @@ export default function ArtistPage() {
         .fetch(query, { slug: slug })
         .then((artistData) => {
           if (!artistData) {
-            router.replace("/404");
+            router.replace('/404');
           } else {
             setArtist(artistData);
             setIsLoading(false);
           }
         })
         .catch((error) => {
-          console.error("Error:", error);
+          console.error('Error:', error);
           setIsLoading(false);
         });
     }
@@ -41,7 +41,7 @@ export default function ArtistPage() {
 
   if (isLoading) return <div></div>;
   return (
-    <>
+    <Layout>
       <ArtistCard
         portrait={urlFor(artist.portrait).url()}
         name={artist.name}
@@ -53,6 +53,6 @@ export default function ArtistPage() {
         facebook={artist.facebook}
         contact={<BlockContent blocks={artist.instructions} />}
       />
-    </>
+    </Layout>
   );
 }
