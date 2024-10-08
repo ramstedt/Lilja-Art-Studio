@@ -21,6 +21,9 @@ const Container = styled.div`
     margin-left: -2%;
     margin-right: -2%;
   }
+  @media screen and (max-width: 1440px) {
+    width: 1290px;
+  }
 `;
 
 const StyledCalendar = styled(Calendar)`
