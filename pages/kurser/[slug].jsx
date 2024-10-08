@@ -8,15 +8,24 @@ import SanityBlockContent from '@sanity/block-content-to-react';
 import Image from 'next/image';
 import ClipLoader from 'react-spinners/ClipLoader';
 
-const Wrapper = styled.div`
+const Wrapper = styled.div``;
+
+const SummaryWrapper = styled.div`
   display: flex;
-  flex-direction: column;
+  flex-direction: column-reverse;
   gap: 1rem;
+  line-height: 2rem;
+
   @media screen and (min-width: 768px) {
-    flex-direction: row;
     justify-content: space-between;
+    flex-direction: row;
   }
 `;
+
+const Summary = styled.div`
+  width: 80%;
+`;
+
 const Content = styled.div`
   display: flex;
   flex-direction: column;
@@ -30,7 +39,7 @@ const Content = styled.div`
 const ImageWrapper = styled.div`
   width: 100%;
   height: auto;
-  min-height: 320px;
+  min-height: 300px;
   position: relative;
 
   img {
@@ -212,28 +221,37 @@ export default function CoursePage() {
       <Wrapper>
         <Content>
           <h1>{selectedCourse?.name}</h1>
-          <div>
-            <div>
-              <small>Instruktör: {selectedCourse?.instructor}</small>
-            </div>
-            <div>
-              <small>När: {selectedCourse?.startDate}</small>
-            </div>
-            <div>
-              <small>Antal timmar: {selectedCourse?.hour} h</small>
-            </div>
-            <div>
-              <small>Pris: {selectedCourse?.price} kr</small>
-            </div>
-            <div>
-              <small>
-                Antal platser: {selectedCourse?.seats}{' '}
+          <SummaryWrapper>
+            <Summary>
+              <div>
+                <b>Instruktör:</b> {selectedCourse?.instructor}
+              </div>
+              <div>
+                <b>När:</b> {selectedCourse?.startDate}
+              </div>
+              <div>
+                <b>Antal timmar:</b> {selectedCourse?.hour} h
+              </div>
+              <div>
+                <b>Pris:</b> {selectedCourse?.price} kr
+              </div>
+              <div>
+                <b>Antal platser:</b> {selectedCourse?.seats}{' '}
                 {selectedCourse?.freeSeats === 0
                   ? '(Fullbokat)'
                   : `(${selectedCourse?.freeSeats} lediga)`}
-              </small>
-            </div>
-          </div>
+              </div>
+            </Summary>
+            <ImageWrapper>
+              <Image
+                src={
+                  selectedCourse?.image && urlFor(selectedCourse?.image).url()
+                }
+                alt={selectedCourse?.image?.alt || 'Course image'}
+                fill
+              />
+            </ImageWrapper>
+          </SummaryWrapper>
           <div>
             {selectedCourse?.description ? (
               <SanityBlockContent blocks={selectedCourse.description} />
@@ -323,13 +341,6 @@ export default function CoursePage() {
             </Form>
           )}
         </Content>
-        <ImageWrapper>
-          <Image
-            src={selectedCourse?.image && urlFor(selectedCourse?.image).url()}
-            alt={selectedCourse?.image?.alt || 'Course image'}
-            fill
-          />
-        </ImageWrapper>
       </Wrapper>
     </Layout>
   );
