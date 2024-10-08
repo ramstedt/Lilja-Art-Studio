@@ -21,7 +21,7 @@ const Container = styled.div`
     margin-left: -2%;
     margin-right: -2%;
   }
-  @media screen and (max-width: 1440px) {
+  @media screen and (max-width: 1290px) {
     width: 1290px;
   }
 `;
