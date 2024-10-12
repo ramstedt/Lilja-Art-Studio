@@ -10,6 +10,7 @@ import { meta } from './schemas/meta';
 import { information } from './schemas/pages/information';
 import { schedule } from './schemas/pages/schedule';
 import { course } from './schemas/course';
+import { courses } from './schemas/pages/courses';
 
 export const schema = {
   types: [
@@ -25,5 +26,6 @@ export const schema = {
     information,
     schedule,
     course,
+    courses,
   ],
 };

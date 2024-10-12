@@ -1,6 +1,6 @@
-import { FaCog, FaCode } from 'react-icons/fa';
+import { FaCog } from 'react-icons/fa';
 import { RiLayoutBottom2Fill, RiLayoutTop2Fill } from 'react-icons/ri';
-import { IoColorPaletteSharp } from 'react-icons/io5';
+import { HiMiniPaintBrush } from 'react-icons/hi2';
 import { BsPersonFill } from 'react-icons/bs';
 import { PiHouseLineFill, PiOfficeChairFill } from 'react-icons/pi';
 import { GrSchedule } from 'react-icons/gr';
@@ -53,6 +53,10 @@ export const myStructure = (S) =>
                   S.document().schemaType('schedule').documentId('schedule')
                 )
                 .icon(GrSchedule),
+              S.listItem()
+                .title('Kurser')
+                .child(S.document().schemaType('courses').documentId('courses'))
+                .icon(HiMiniPaintBrush),
             ])
         ),
     ]);
