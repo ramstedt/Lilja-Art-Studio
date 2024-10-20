@@ -108,15 +108,15 @@ export default function Courses() {
   const [isLoading, setLoading] = useState(true);
 
   useEffect(() => {
-    // Fetch both 'course' and 'courses' schemas from Sanity
+
     Promise.all([
-      client.fetch(`*[_type == "course"]`), // Fetches 'course' schema
-      client.fetch(`*[_type == "courses"]`), // Fetches 'courses' schema
+      client.fetch(`*[_type == "course"]`), 
+      client.fetch(`*[_type == "courses"]`),
     ])
       .then(([courseData, coursesData]) => {
-        setCoursePage(coursesData); // Set the 'course' data
-        setCourses(courseData); // Set the 'courses' data
-        setLoading(false); // Set loading to false once data is fetched
+        setCoursePage(coursesData); 
+        setCourses(courseData);
+        setLoading(false); 
       })
       .catch((error) => {
         console.error('Error:', error);
