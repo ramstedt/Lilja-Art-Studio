@@ -129,17 +129,19 @@ export default function Courses() {
     <Layout>
       <h1>Kurser</h1>
       <CoursesWrapper>
-        {courseData.map((course, key) => {
-          return (
-            <CourseCard
-              key={key}
-              name={course.name}
-              slug={`/kurser/${course.slug.current}`}
-              image={course.image && urlFor(course.image).url()}
-              alt={course.image.alt}
-            />
-          );
-        })}
+      {courseData
+  .sort((a, b) => new Date(a.date) - new Date(b.date))
+  .map((course, key) => {
+    return (
+      <CourseCard
+        key={key}
+        name={course.name}
+        slug={`/kurser/${course.slug.current}`}
+        image={course.image && urlFor(course.image).url()}
+        alt={course.image.alt}
+      />
+    );
+  })}
       </CoursesWrapper>
 
       <GalleryWrapper>

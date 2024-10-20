@@ -42,10 +42,10 @@ export const course = {
     },
     {
       name: 'dateTime',
-      name: 'statdatum',
+      title: 'Startdatum',
       type: 'date',
       validation: (Rule) => Rule.required(),
-      description: 'för att kunna sortera efter datum',
+      description: 'för att kunna sortera efter datum. Detta visas inte på sidan',
     },
     {
       name: 'startDate',
