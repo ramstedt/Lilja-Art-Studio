@@ -9,6 +9,8 @@ import Layout from '@/components/Layout/Layout';
 import Modal from 'react-modal';
 import Link from 'next/link';
 import { FiExternalLink } from 'react-icons/fi';
+import { TiChevronLeft, TiChevronRight } from "react-icons/ti";
+
 
 const Container = styled.div`
   display: flex;
@@ -86,6 +88,22 @@ const StyledCalendar = styled(Calendar)`
   .react-calendar__tile:enabled:focus {
     background: transparent !important;
   }
+
+  .react-calendar__navigation__prev-button,
+  .react-calendar__navigation__next-button{
+  display: flex;
+  align-items: center;
+  }
+
+    .react-calendar__navigation__prev-button svg,
+  .react-calendar__navigation__next-button svg {
+width: 30px;
+height: 30px;
+  }
+
+  .react-calendar__navigation{
+  font-weight: 600;
+  background: #F6EFEF; }
 `;
 
 const EventContent = styled.div`
@@ -187,8 +205,8 @@ const EventModal = ({ isOpen, onRequestClose, events = [] }) => {
 
   const formattedDate = eventDate
     ? `${eventDate.toLocaleDateString('sv-SE', {
-        weekday: 'long',
-      })} ${formatDateWithOrdinal(eventDate)}`
+      weekday: 'long',
+    })} ${formatDateWithOrdinal(eventDate)}`
     : 'Inga händelser tillgängliga';
 
   return (
@@ -212,12 +230,12 @@ const EventModal = ({ isOpen, onRequestClose, events = [] }) => {
                 <p>
                   {event.start.dateTime
                     ? `Tid: ${new Date(event.start.dateTime).toLocaleTimeString(
-                        [],
-                        {
-                          hour: '2-digit',
-                          minute: '2-digit',
-                        }
-                      )}`
+                      [],
+                      {
+                        hour: '2-digit',
+                        minute: '2-digit',
+                      }
+                    )}`
                     : 'Hela dagen'}{' '}
                 </p>
                 {event.description && <p>{event.description}</p>}
@@ -309,6 +327,15 @@ export default function CalendarPage({ events }) {
           tileContent={({ date, view }) =>
             view === 'month' ? getEventContentForTile(date) : null
           }
+          prevLabel={
+            <>
+              <TiChevronLeft /> Föregående månad
+            </>
+          }
+          nextLabel={
+            <>
+              Nästa månad <TiChevronRight />
+            </>}
         />
 
         {modalIsOpen && (
