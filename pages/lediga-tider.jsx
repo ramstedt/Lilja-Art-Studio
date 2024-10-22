@@ -30,11 +30,13 @@ const Container = styled.div`
 const StyledCalendar = styled(Calendar)`
   border: none;
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-  //border-radius: 8px;
   margin-bottom: 2rem;
-  width: 100%;
+width: 100%;
   font-family: 'Source Sans 3';
 
+@media screen and (min-width: 1290px) {
+  width: 1290px;
+}
   .react-calendar__navigation__prev2-button {
     display: none;
   }
@@ -205,8 +207,8 @@ const EventModal = ({ isOpen, onRequestClose, events = [] }) => {
 
   const formattedDate = eventDate
     ? `${eventDate.toLocaleDateString('sv-SE', {
-        weekday: 'long',
-      })} ${formatDateWithOrdinal(eventDate)}`
+      weekday: 'long',
+    })} ${formatDateWithOrdinal(eventDate)}`
     : 'Inga händelser tillgängliga';
 
   return (
@@ -230,12 +232,12 @@ const EventModal = ({ isOpen, onRequestClose, events = [] }) => {
                 <p>
                   {event.start.dateTime
                     ? `Tid: ${new Date(event.start.dateTime).toLocaleTimeString(
-                        [],
-                        {
-                          hour: '2-digit',
-                          minute: '2-digit',
-                        }
-                      )}`
+                      [],
+                      {
+                        hour: '2-digit',
+                        minute: '2-digit',
+                      }
+                    )}`
                     : 'Hela dagen'}{' '}
                 </p>
                 {event.description && <p>{event.description}</p>}
