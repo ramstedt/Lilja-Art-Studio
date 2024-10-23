@@ -1,27 +1,27 @@
 @font-face {
-  font-family: "Oswald";
-  src: url("../public/fonts/Oswald-VariableFont_wght.woff2");
+  font-family: 'Oswald';
+  src: url('../public/fonts/Oswald-VariableFont_wght.woff2');
   font-weight: normal;
   font-style: normal;
 }
 
 @font-face {
-  font-family: "Source Sans 3";
-  src: url("../public/fonts/SourceSans3-VariableFont_wght.woff2");
+  font-family: 'Source Sans 3';
+  src: url('../public/fonts/SourceSans3-VariableFont_wght.woff2');
   font-weight: normal;
   font-style: normal;
 }
 
 @font-face {
-  font-family: "Source Sans 3";
-  src: url("../public/fonts/SourceSans3-Italic-VariableFont_wght.woff2");
+  font-family: 'Source Sans 3';
+  src: url('../public/fonts/SourceSans3-Italic-VariableFont_wght.woff2');
   font-weight: normal;
   font-style: italic;
 }
 
 @font-face {
-  font-family: "Source Sans 3";
-  src: url("../public/fonts/SourceSans3-VariableFont_wght.woff2");
+  font-family: 'Source Sans 3';
+  src: url('../public/fonts/SourceSans3-VariableFont_wght.woff2');
   font-weight: bold;
   font-style: bold;
 }
@@ -38,7 +38,7 @@ html,
 body {
   margin: auto;
   overflow-x: hidden;
-  font-family: "Source Sans 3", Courier, monospace;
+  font-family: 'Source Sans 3', Courier, monospace;
 }
 
 p,
@@ -58,7 +58,7 @@ h3,
 h4,
 h5,
 h6 {
-  font-family: "Oswald", Courier, monospace;
+  font-family: 'Oswald', Courier, monospace;
   padding-bottom: 1rem;
 }
 
@@ -86,4 +86,14 @@ footer {
 
 ul {
   margin-left: 2rem;
+}
+
+video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease-in-out;
+}
+.videoThumb:hover {
+  transform: scale(1.1);
 }
