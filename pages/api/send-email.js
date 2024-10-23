@@ -1,4 +1,3 @@
-// /pages/api/send-email.js
 import nodemailer from "nodemailer";
 
 export default async function handler(req, res) {
@@ -27,7 +26,9 @@ export default async function handler(req, res) {
           Meddelande:
           ${message}
         `,
+        replyTo: email,
       });
+
       res.status(200).json({ success: true });
     } catch (error) {
       console.error("Error sending email:", error);
