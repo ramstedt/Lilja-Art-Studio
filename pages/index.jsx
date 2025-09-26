@@ -64,12 +64,12 @@ export default function Home() {
           return nameA.includes('karin')
             ? -1
             : nameB.includes('karin')
-            ? 1
-            : nameA.includes('gästartist')
-            ? 1
-            : nameB.includes('gästartist')
-            ? -1
-            : 0;
+              ? 1
+              : nameA.includes('gästartist')
+                ? 1
+                : nameB.includes('gästartist')
+                  ? -1
+                  : 0;
         });
 
         setArtists(sortedArtists);
@@ -86,7 +86,6 @@ export default function Home() {
       <div>
         <BlockContent blocks={studioData && studioData.body} />
       </div>
-      <h2>Tatuerare</h2>
       <ArtistWrapper>
         {artists &&
           artists.map((artist, key) => {
@@ -102,11 +101,11 @@ export default function Home() {
             );
           })}
       </ArtistWrapper>
-      <div>
+      {/* <div>
         <h2>Det senaste från Instagram</h2>
         Kommer snart
-        {/* <Instagram /> */}
-      </div>
+         <Instagram /> 
+      </div> */}
     </Layout>
   );
 }
