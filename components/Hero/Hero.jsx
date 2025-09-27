@@ -1,8 +1,8 @@
-import { client } from "@/sanity/lib/client";
-import { useState, useEffect } from "react";
-import Image from "next/image";
-import imageUrlBuilder from "@sanity/image-url";
-import styled from "styled-components";
+import { client } from '@/sanity/lib/client';
+import { useState, useEffect } from 'react';
+import Image from 'next/image';
+import imageUrlBuilder from '@sanity/image-url';
+import styled from 'styled-components';
 
 const builder = imageUrlBuilder(client);
 function urlFor(source) {
@@ -36,7 +36,7 @@ const TextWrapper = styled.div`
 
 const Title = styled.div`
   padding: 1rem;
-  font-family: "Oswald";
+  font-family: 'Oswald';
   font-size: 2rem;
   text-align: center;
   letter-spacing: 0.2rem;
@@ -115,7 +115,7 @@ const Hero = () => {
         setLoading(false);
       })
       .catch((error) => {
-        console.error("Error:", error);
+        console.error('Error:', error);
       });
   }, []);
   if (isLoading) return <div></div>;
@@ -129,7 +129,7 @@ const Hero = () => {
             <div></div>
             <hr />
           </Accent>
-          <Subtext>Tatuerare och konstnär i Mölndal</Subtext>
+          <Subtext>Tatuerare och konstnär i Majorna</Subtext>
         </Title>
       </TextWrapper>
       <ImageWrapper>
@@ -137,7 +137,7 @@ const Hero = () => {
           src={urlFor(hero.image).url()}
           alt={hero.image.alt}
           fill
-          style={{ objectFit: "cover" }}
+          style={{ objectFit: 'cover' }}
           priority={true}
         />
       </ImageWrapper>
